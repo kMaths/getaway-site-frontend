@@ -10,6 +10,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { TravelComponent } from './travel/travel.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,4 +27,7 @@ import { TravelComponent } from './travel/travel.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(){   
+  }
+ }
