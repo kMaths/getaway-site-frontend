@@ -1,3 +1,11 @@
-.container{background-color: cornsilk;
-    
+.container{background-color: cornsilk;  
+} 
+
+#pagebackground{
+    background-image:  url(https://i.pinimg.com/564x/ba/f8/9c/baf89c76f4a6323e8f2b00a2407140a3.jpg) ;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-size: 100%;
+    background-attachment: fixed;
+
 }
