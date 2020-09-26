@@ -3,10 +3,10 @@
 <div class="container text-center">
     <div class="row content">
       <div class="col-sm-2">
-        <p><button type="button" class="btn btn-default" id="up">
+        <p><button (click)="sol()" type="button" class="btn btn-default" id="up">
           <i class="fas fa-arrow-up"></i>
         </button></p>
-        <p><button type="button" class="btn btn-default" id="down">
+        <p><button (click)="sol()" type="button" class="btn btn-default" id="down">
           <i class="fas fa-arrow-down"></i>
         </button></p>
         
@@ -14,9 +14,9 @@
       <div class="col-sm-6">
         <img src="http://mars.nasa.gov/mer/gallery/all/1/f/2000/1F305739504EFFA5DZP1212L0M1-BR.JPG">
       </div>
-      <div class="col-sm-4 text-left" >
+      <div class="col-sm-4 text-left">
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="cameraAnswer" id="FHAZ" value="Front Hazard Avoidance Camera" checked>
+          <input (click)="cameraName($event)" class="form-check-input" type="radio" name="cameraAnswer" id="FHAZ" value="Front Hazard Avoidance Camera" checked>
           <label class="form-check-label" for="FHAZ">
             Front Hazard Avoidance Camera
           </label>
