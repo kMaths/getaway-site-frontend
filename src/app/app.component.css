@@ -1,10 +1,16 @@
-.container{background-color: cornsilk;  
+.container{background-color: rgba(255, 248, 220, 0.8);
 } 
+
+.jumbotron{
+    background: transparent !important;
+    padding-bottom: 1em;
+}
 
 #pagebackground{
     background-image:  url(https://i.pinimg.com/564x/ba/f8/9c/baf89c76f4a6323e8f2b00a2407140a3.jpg) ;
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
     background-attachment: fixed;
 
 }
