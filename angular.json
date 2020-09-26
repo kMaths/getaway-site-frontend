@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "getaway-site-frontend"
+    }
+  },
+  "defaultProject": "getaway-site-frontend",
+  "cli": {
+    "analytics": false
+  }
 }
