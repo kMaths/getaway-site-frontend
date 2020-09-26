@@ -1,8 +1,8 @@
 <head><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous"></head>
-
-<div class="container-fluid text-center">
+<body>
+<div class="container text-center">
     <div class="row content">
-      <div class="col-sm-2 sidenav">
+      <div class="col-sm-2">
         <p><button type="button" class="btn btn-default" id="up">
           <i class="fas fa-arrow-up"></i>
         </button></p>
@@ -14,13 +14,65 @@
       <div class="col-sm-6">
         <img src="http://mars.nasa.gov/mer/gallery/all/1/f/2000/1F305739504EFFA5DZP1212L0M1-BR.JPG">
       </div>
-      <div class="col-sm-4 sidenav">
-        <div class="well">
-          <p>Radio</p>
+      <div class="col-sm-4 text-left" >
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="cameraAnswer" id="FHAZ" value="Front Hazard Avoidance Camera">
+          <label class="form-check-label" for="FHAZ">
+            Front Hazard Avoidance Camera
+          </label>
         </div>
-        <div class="well">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="cameraAnswer" id="RHAZ" value="Rear Hazard Avoidance Camera">
+          <label class="form-check-label" for="RHAZ">
+            Rear Hazard Avoidance Camera
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="cameraAnswer" id="MAST" value="Mast Camera">
+          <label class="form-check-label" for="MAST">
+            Mast Camera
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="cameraAnswer" id="CHEMCAM" value="Chemistry and Camera Complex">
+          <label class="form-check-label" for="CHEMCAM">
+            Chemistry and Camera Complex
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="cameraAnswer" id="MAHLI" value="Mars Hand Lens Imager">
+          <label class="form-check-label" for="MAHLI">
+            Mars Hand Lens Imager
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="cameraAnswer" id="MARDI" value="Mars Descent Imager">
+          <label class="form-check-label" for="MARDI">
+            Mars Descent Imager
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="cameraAnswer" id="NAVCAM" value="Navigation Camera">
+          <label class="form-check-label" for="NAVCAM">
+            Navigation Camera
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="cameraAnswer" id="PANCAM" value="Panoramic Camera">
+          <label class="form-check-label" for="PANCAM">
+            Panoramic Camera
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="cameraAnswer" id="MINITES" value="Miniature Thermal Emission Spectrometer">
+          <label class="form-check-label" for="MINITES">
+            Miniature Thermal Emission Spectrometer (Mini-TES)
+          </label>
+        </div>
+        <div class="text-left">
           <p>Info Box</p>
         </div>
       </div>
     </div>
   </div>
+</body>
