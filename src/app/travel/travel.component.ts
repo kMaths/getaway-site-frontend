@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TravelService } from './travel.service'
+import { RoverImage } from './rover-image'
 
 @Component({
   selector: 'app-travel',
@@ -7,13 +8,6 @@ import { TravelService } from './travel.service'
   styleUrls: ['./travel.component.css']
 })
 export class TravelComponent implements OnInit {
-
-  name: string;
-  landingDate: string;
-  launchDate: string;
-  status: string;
-  sol: string;
-  earthDay: string;
 
   constructor() { }
 
