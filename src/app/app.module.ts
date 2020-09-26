@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TravelComponent } from './travel/travel.component';
+import { TravelModule } from './travel/travel.module';
 
 
 
@@ -17,12 +18,12 @@ import { TravelComponent } from './travel/travel.component';
     HomeComponent,
     LoginComponent,
     NavbarComponent,
-    TravelComponent,
   ],
   imports: [
     BrowserModule,
     NgbModule,
     AppRoutingModule,
+    TravelModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,7 +14,7 @@ export class TravelService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  constructor() {
-    private http: HttpClient
+  constructor(private http: HttpClient) {
+    
   }
 }

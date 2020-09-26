@@ -18,7 +18,7 @@ export class TravelComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.getCurrentPhotoForCuriosity();
+    // this.getCurrentPhotoForCuriosityFront();
   }
 
 
