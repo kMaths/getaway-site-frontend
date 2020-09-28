@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TravelComponent } from './travel/travel.component';
 import { TravelModule } from './travel/travel.module';
+import { CartComponent } from './cart/cart.component';
 
 
 
@@ -18,6 +19,7 @@ import { TravelModule } from './travel/travel.module';
     HomeComponent,
     LoginComponent,
     NavbarComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
