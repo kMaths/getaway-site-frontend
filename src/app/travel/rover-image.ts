@@ -1,9 +1,12 @@
 import { Camera } from './camera';
 import { Rover } from './rover';
 
+
 export interface RoverImage {
   sol: number;
-  earth_date: string;
   camera: Camera;
+  img_src: string;
+  earth_date: string;
   rover: Rover
+  
 }

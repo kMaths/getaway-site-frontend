@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TravelService } from './travel.service'
 import { RoverImage } from './rover-image'
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+
 
 @Component({
   selector: 'app-travel',
@@ -10,26 +11,39 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TravelComponent implements OnInit {
 
-  roverImage: RoverImage;
   _roverName: string;
-  _sol: number;
-  _cameraName: string;
+  _sol: number =1000;
+  _cameraName: string = "FHAZ";
+  roverImages:RoverImage[]
 
-  set sol(value: any){
+  setSol(value: any){
     this._sol += value;
+    const roverName = this.route.snapshot.paramMap.get('roverName');
+    this.travelService.getImage(this._cameraName,this._sol, roverName)
+    .subscribe(roverImages => this.roverImages = roverImages, error => console.log('oops', error));
+    console.log(this.roverImages);
   }
 
-  set cameraName(value: Event){
+  setCameraName(value: any){
     this._cameraName = (value.target as Element).id;
+    const roverName = this.route.snapshot.paramMap.get('roverName');
+    this.travelService.getImage(this._cameraName,this._sol, roverName)
+    .subscribe(roverImages => this.roverImages = roverImages, error => console.log('oops', error));
+    console.log(this.roverImages);
   }
 
-  constructor(private travelService: TravelService, private route: ActivatedRoute) { }
+  constructor(private travelService: TravelService, private route: ActivatedRoute) {
+    
+   }
 
   ngOnInit(): void {
+    const roverName = this.route.snapshot.paramMap.get('roverName');
+    this.travelService.getImage(this._cameraName,this._sol, roverName)
+    .subscribe(roverImages => this.roverImages = roverImages, error => console.log('oops', error));
+    console.log(this.roverImages);
 
-    this.route.queryParams.subscribe(params => {this._roverName = params["roverName"]})
-  //  this.travelService.getImage().subscribe({})
   }
+
 
 
 /*

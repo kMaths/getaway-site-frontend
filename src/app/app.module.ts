@@ -7,8 +7,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
-import { TravelComponent } from './travel/travel.component';
 import { TravelModule } from './travel/travel.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -23,9 +23,10 @@ import { TravelModule } from './travel/travel.module';
     BrowserModule,
     NgbModule,
     AppRoutingModule,
-    TravelModule
+    TravelModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule {
