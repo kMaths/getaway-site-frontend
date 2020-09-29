@@ -1,0 +1,13 @@
+@media(min-width: 992px){
+    li{
+        padding-left: 6em;
+        padding-right: 5em;
+    }
+}
+@media(max-width: 991px){
+    li{
+
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+}
