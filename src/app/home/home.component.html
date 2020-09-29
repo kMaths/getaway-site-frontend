@@ -12,6 +12,6 @@
     </div>
     <div class = "col-md-6" id = "homepage_picture" > 
         <img src="{{ImageOfTheDay.url}}" width="100%" height="100%" *ngIf="ImageOfTheDay.media_type == 'jpeg'">
-        <iframe *ngIf="ImageOfTheDay.media_type == 'video'" src="{{ImageOfTheDay.url}}" width="100%" height="100%" ></iframe>
+        <iframe *ngIf="ImageOfTheDay.media_type == 'video'" [src]="getTrustedUrl()" width="100%" height="100%" ></iframe>
     </div>
  </div>

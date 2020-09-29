@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IPictureOfTheDay } from './home';
 import { HomeService } from './home.service';
+import {DomSanitizer} from '@angular/platform-browser'
+
 
 
 @Component({
@@ -8,11 +10,11 @@ import { HomeService } from './home.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent{
+export class HomeComponent implements OnInit{
 
   ImageOfTheDay:IPictureOfTheDay;
 
-  constructor(private homeService:HomeService ) { 
+  constructor(private homeService:HomeService, private sanitizer:DomSanitizer ) { 
   }
 
   ngOnInit(): void {
@@ -21,6 +23,10 @@ export class HomeComponent{
         this.ImageOfTheDay = data;
       }
     })
+  }
+
+  getTrustedUrl(){
+    return this.sanitizer.bypassSecurityTrustResourceUrl(this.ImageOfTheDay.url)
   }
 
 }
