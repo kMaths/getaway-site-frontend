@@ -10,8 +10,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { TravelComponent } from './travel/travel.component';
 import { TravelModule } from './travel/travel.module';
 import { CartComponent } from './cart/cart.component';
-
-
 import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
@@ -27,7 +25,7 @@ import {HttpClientModule} from '@angular/common/http';
     NgbModule,
     AppRoutingModule,
     TravelModule
-    HttpClientModule,
+    // HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
