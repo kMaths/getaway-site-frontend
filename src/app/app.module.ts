@@ -11,6 +11,7 @@ import { TravelComponent } from './travel/travel.component';
 import { TravelModule } from './travel/travel.module';
 import { CartComponent } from './cart/cart.component';
 import {HttpClientModule} from '@angular/common/http';
+import { StorefrontComponent } from './storefront/storefront.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {HttpClientModule} from '@angular/common/http';
     LoginComponent,
     NavbarComponent,
     CartComponent,
+    StorefrontComponent,
   ],
   imports: [
     BrowserModule,
