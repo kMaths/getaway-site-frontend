@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IPictureOfTheDay } from './home';
+import { HomeService } from './home.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  ImageOfTheDay:IPictureOfTheDay;
+
+  constructor(private homeService:HomeService ) { 
+  }
 
   ngOnInit(): void {
+    this.homeService.getImageOfTheDay().subscribe({
+      next: (data) => { 
+        this.ImageOfTheDay = data;
+      }
+    })
   }
 
 }
