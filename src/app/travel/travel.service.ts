@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Route } from '@angular/compiler/src/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { RoverImage } from './rover-image';
+import { RoverImage } from './rover-image.model';
 import { catchError, map, tap } from 'rxjs/operators';
 // import { catchError, map, tap } from 'rxjs/operators';
 
@@ -31,6 +31,12 @@ export class TravelService {
 
     //Had to map the array of images using the map. The name of the array we get from the NASA API is called photos
     return this.http.get<RoverImage[]>(this.url).pipe(map(result => result['photos']));
+
+    // mapToAddress(): Observable<Address[]> {
+    //   this.getClients.pipe(
+    //     map((clients: Client[]) => clients.map(client => client.address))
+    //   )
+    // }
    }
 
 }
