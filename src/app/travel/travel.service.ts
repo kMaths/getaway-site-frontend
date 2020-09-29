@@ -28,9 +28,9 @@ export class TravelService {
   getImage(camera: string, sol: number, roverName: any): Observable<RoverImage[]>{
     
     this.url= this.baseURL + roverName + '/photos?sol=' + sol + '&camera=' + camera + '&api_key=' + this.apiKey;
-    console.log(this.url);
+
+    //Had to map the array of images using the map. The name of the array we get from the NASA API is called photos
     return this.http.get<RoverImage[]>(this.url).pipe(map(result => result['photos']));
-     //return this.http.get<RoverImage>('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=fhaz&api_key=DEMO_KEY');
-  }
+   }
 
 }

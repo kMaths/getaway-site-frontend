@@ -11,6 +11,15 @@
         </button></p>
         
       </div>
+      <div class="text-left">
+        <br/> <!--ToDo: Fix padding so this break isn't necessary-->
+        <p>Rover: </p>
+        <p>Sol: </p>
+        <p>Earth Day:</p>
+        <p>Launch Day: </p>
+        <p>Landing Day: </p>
+        <p>Status: </p>
+      </div>
       <div *ngFor="let roverImage of roverImages" class="col-sm-6">
         <img [src]="roverImage.img_src">
       </div>
@@ -28,25 +37,25 @@
           </label>
         </div>
         <div class="form-check">
-          <input (click)="setCameraName($event)" class="form-check-input" type="radio" name="cameraAnswer" id="MAST" value="Mast Camera">
+          <input [disabled] = '!isCurriosity()' (click)="setCameraName($event)" class="form-check-input" type="radio" name="cameraAnswer" id="MAST" value="Mast Camera">
           <label class="form-check-label" for="MAST">
             Mast Camera
           </label>
         </div>
         <div class="form-check">
-          <input (click)="setCameraName($event)" class="form-check-input" type="radio" name="cameraAnswer" id="CHEMCAM" value="Chemistry and Camera Complex">
-          <label class="form-check-label" for="CHEMCAM">
+          <input [disabled] = '!isCurriosity()' (click)="setCameraName($event)" class="form-check-input" type="radio" name="cameraAnswer" id="CHEMCAM" value="Chemistry and Camera Complex">
+          <label  class="form-check-label" for="CHEMCAM">
             Chemistry and Camera Complex
           </label>
         </div>
         <div class="form-check">
-          <input (click)="setCameraName($event)" class="form-check-input" type="radio" name="cameraAnswer" id="MAHLI" value="Mars Hand Lens Imager">
+          <input [disabled] = '!isCurriosity()' (click)="setCameraName($event)" class="form-check-input" type="radio" name="cameraAnswer" id="MAHLI" value="Mars Hand Lens Imager">
           <label class="form-check-label" for="MAHLI">
             Mars Hand Lens Imager
           </label>
         </div>
         <div class="form-check">
-          <input (click)="setCameraName($event)" class="form-check-input" type="radio" name="cameraAnswer" id="MARDI" value="Mars Descent Imager">
+          <input [disabled] = '!isCurriosity()' (click)="setCameraName($event)" class="form-check-input" type="radio" name="cameraAnswer" id="MARDI" value="Mars Descent Imager">
           <label class="form-check-label" for="MARDI">
             Mars Descent Imager
           </label>
@@ -58,26 +67,16 @@
           </label>
         </div>
         <div class="form-check">
-          <input (click)="setCameraName($event)" class="form-check-input" type="radio" name="cameraAnswer" id="PANCAM" value="Panoramic Camera">
+          <input [disabled] = 'isCurriosity()' (click)="setCameraName($event)" class="form-check-input" type="radio" name="cameraAnswer" id="PANCAM" value="Panoramic Camera">
           <label class="form-check-label" for="PANCAM">
             Panoramic Camera
           </label>
         </div>
         <div class="form-check">
-          <input (click)="setCameraName($event)" class="form-check-input" type="radio" name="cameraAnswer" id="MINITES" value="Miniature Thermal Emission Spectrometer">
+          <input [disabled] = 'isCurriosity()' (click)="setCameraName($event)" class="form-check-input" type="radio" name="cameraAnswer" id="MINITES" value="Miniature Thermal Emission Spectrometer">
           <label class="form-check-label" for="MINITES">
             Miniature Thermal Emission Spectrometer (Mini-TES)
           </label>
-        </div>
-        
-        <div class="text-left">
-          <br/> <!--ToDo: Fix padding so this break isn't necessary-->
-          <p>Rover: </p>
-          <p>Sol: </p>
-          <p>Earth Day:</p>
-          <p>Launch Day: </p>
-          <p>Landing Day: </p>
-          <p>Status: </p>
         </div>
       </div>
     </div>
