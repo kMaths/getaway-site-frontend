@@ -12,6 +12,7 @@ import { TravelModule } from './travel/travel.module';
 import { CartComponent } from './cart/cart.component';
 
 
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { CartComponent } from './cart/cart.component';
     NgbModule,
     AppRoutingModule,
     TravelModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
