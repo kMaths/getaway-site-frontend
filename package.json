@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "aws-deploy": "aws s3 sync dist/getaway-site-frontend/ s3://spacegeecks"
   },
   "private": true,
   "dependencies": {
@@ -30,7 +31,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1001.2",
-    "@angular/cli": "~10.1.2",
+    "@angular/cli": "~10.1.3",
     "@angular/compiler-cli": "~10.1.2",
     "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.0",
