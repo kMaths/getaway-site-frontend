@@ -3,6 +3,7 @@
 
 <div class="row" id="navPage">
     <div class="col-sm-6" >
+      <!--Put a div in a div to allow scrolling-->
       <div id='choices'>
       <!--Move one sol foreward or back-->
         <div class="content">
@@ -14,9 +15,9 @@
             </button></p>
         
         </div>
-        <!--Rover and image information, only shows if pictures are available-->
         
         <!--Radio buttons for camera selection-->
+        <!--The disables attribute disables the radio button if the exression evaluates to true-->
         <div class="form-group">
           <div class="form-check">
             <input class="form-check-input" type="radio" name="cameraAnswer" id="FHAZ" value="Front Hazard Avoidance Camera"
@@ -82,6 +83,9 @@
             </label>
           </div>
         </div>
+
+        
+        <!--Rover and image information, only shows if pictures are available-->
         <div *ngIf='this.firstPic' class="content">
           <p>Rover: {{this.firstPic.rover.name}}</p>
           <p>Sol: {{this.firstPic.sol}}</p>
