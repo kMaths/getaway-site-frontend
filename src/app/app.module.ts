@@ -7,7 +7,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
-import {HttpClientModule} from '@angular/common/http';
+import { TravelModule } from './travel/travel.module';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 @NgModule({
   declarations: [
@@ -20,11 +23,18 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserModule,
     NgbModule,
     AppRoutingModule,
+    TravelModule,
     HttpClientModule,
+<<<<<<< HEAD
+=======
     FormsModule,
 
+>>>>>>> 02bf3fb9c123719c3c5eeecfafbd62729efb335a
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(){   
+  }
+ }
