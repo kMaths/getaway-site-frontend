@@ -26,6 +26,10 @@ import { HttpClientModule } from '@angular/common/http';
     TravelModule,
     HttpClientModule,
     FormsModule,
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1be001419cc2c5858922b24a96f8f3a6824d54ca
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
