@@ -4,11 +4,12 @@ import { Rover } from './rover.model';
 
 export class RoverImage {
     
-    constructor(sol: number,
-        camera: Camera,
-        img_src: string,
-        earth_date: string,
-        rover: Rover){}
+    constructor(sol?: number,
+        camera?: Camera,
+        img_src?: string,
+        earth_date?: string,
+        rover?: Rover){}
+    
    
     
     // deserialize(input: any): this {
