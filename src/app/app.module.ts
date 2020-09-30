@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {FormsModule} from '@angular/forms'
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -25,6 +25,11 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     TravelModule,
     HttpClientModule,
+<<<<<<< HEAD
+=======
+    FormsModule,
+
+>>>>>>> 02bf3fb9c123719c3c5eeecfafbd62729efb335a
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
