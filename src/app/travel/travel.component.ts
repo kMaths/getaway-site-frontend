@@ -55,7 +55,7 @@ export class TravelComponent implements OnInit {
           this.roverImages = roverImages;
           if (roverImages) {
             this.firstPic = roverImages[0];
-          }
+          } 
         });
     }
 

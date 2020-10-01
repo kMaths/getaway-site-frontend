@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginService} from './login.service'
 import { LoginModel,  RegisterModel } from './login';
+import { UserService } from '../user.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-login',
@@ -10,10 +12,12 @@ import { LoginModel,  RegisterModel } from './login';
 export class LoginComponent implements OnInit {
 
   
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private userService: UserService) { }
   
-  newUser = new RegisterModel()
-  userLogin = new LoginModel()
+  newUser = new RegisterModel();
+  userLogin = new LoginModel();
+  loginMessage : string;
+
 
   ngOnInit(): void {
     
@@ -35,10 +39,19 @@ export class LoginComponent implements OnInit {
     
     this.loginService.postLogin(this.userLogin).subscribe( data =>
       {
-        this.userLogin.password = data.password;
-        this.userLogin.username = data.username;
+        if( data){
+          if(data == this.userService.user){
+            this.loginMessage = "You are already signed in"
+          } else {
+            this.userService.user = data;
+            this.userService.logInStatus = true;
+            this.loginMessage = "You have successfully logged in!";
+          }
+        } else {
+          this.loginMessage = "Sorry, wrong username or password";
+        }
+
       }
     )
   }
-
 }
