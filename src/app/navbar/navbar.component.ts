@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login/login.service';
-import { UserService } from '../user.service';
+import { UserService } from '../Services/user.service';
 
 @Component({
   selector: 'app-navbar',

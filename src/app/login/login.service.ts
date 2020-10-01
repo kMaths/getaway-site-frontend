@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs/internal/observable/of';
 import { catchError, map } from 'rxjs/operators';
-import { User } from '../user';
+import { User } from '../Services/user';
 import { LoginModel, RegisterModel } from './login';
 
 
