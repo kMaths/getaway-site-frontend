@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit{
   constructor(private homeService:HomeService, private sanitizer:DomSanitizer ) { 
   }
 
+  //Get the information when ngOnit is called 
   ngOnInit(): void {
     this.homeService.getImageOfTheDay().subscribe({
       next: (data) => { 
@@ -25,6 +26,7 @@ export class HomeComponent implements OnInit{
     })
   }
 
+  //if ImageOfTheDay is has a video link then we need to sanitize it to pass the security of angular
   getTrustedUrl(){
     return this.sanitizer.bypassSecurityTrustResourceUrl(this.ImageOfTheDay.url)
   }
