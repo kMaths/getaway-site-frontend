@@ -54,4 +54,9 @@ export class LoginComponent implements OnInit {
       }
     )
   }
+
+  clickLogout(){
+    this.loginService.postLogout(this.userService);
+    console.log("logged out");
+  }
 }
