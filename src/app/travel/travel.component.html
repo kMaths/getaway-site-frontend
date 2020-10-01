@@ -87,7 +87,8 @@
         
         <!--Rover and image information, only shows if pictures are available-->
         <div *ngIf='this.firstPic' class="content">
-          <p>Rover: {{this.firstPic.rover.name}}</p>
+          <p>Information about these pictures:</p>
+          <p>Rover Name: {{this.firstPic.rover.name}}</p>
           <p>Sol: {{this.firstPic.sol}}</p>
           <p>Earth Day: {{this.firstPic.earth_date | date}}</p>
           <p>Launch Day: {{this.firstPic.rover.launch_date | date}}</p>
@@ -98,8 +99,9 @@
     </div>
       
     <div class="col-sm-6" id='pics' >
+      <!--Shows a message if no images were fetched-->
+      <p *ngIf='!this.firstPic'>Sorry! No images were found <br> Try a different camera or Sol</p>
       <!--Shows all the images fetched from the NASA API-->
-      <!-- <p *ngIf='!this.firstPic'>Sorry! No images were found <br> Try a different camera or Sol</p> -->
       <div class="content" *ngFor="let roverImage of roverImages">
         <img [src]="roverImage.img_src">
       </div>
