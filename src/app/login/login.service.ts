@@ -13,7 +13,6 @@ import { LoginModel, RegisterModel } from './login';
 })
 
 export class LoginService{
-
     logInStatus : boolean = false;
 
     loginURL:string ="http://3.131.26.213:8888/spacegeecks/login" 
