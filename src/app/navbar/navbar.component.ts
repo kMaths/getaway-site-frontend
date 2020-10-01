@@ -11,10 +11,12 @@ export class NavbarComponent implements OnInit {
 
   constructor(private userService:UserService, private loginService:LoginService) { }
 
+  //Check to see if the user is logged in
   isLoggedIn():boolean{
     return this.userService.logInStatus
   }
 
+  //When you Click the signout button this will call the postLogout method anc clear the user 
    clickLogout(){
     this.loginService.postLogout(this.userService);
     console.log("logged out");

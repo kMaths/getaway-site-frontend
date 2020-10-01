@@ -26,8 +26,11 @@
         </div>
       </li>
   
+      <!-- this will change depending on if you are logged in or out -->
       <li class="nav-item">
+        <!-- If signed out then you will have the option to log in or register  -->
         <a *ngIf="!isLoggedIn()" class="nav-link" routerLink="/login">Login</a>
+        <!-- If signed in then you will have the option to logout and get placed back at the home screen -->
         <a *ngIf="isLoggedIn()" class="nav-link" routerLink="/home" (click)="clickLogout()">Signout</a>
       </li>
   
