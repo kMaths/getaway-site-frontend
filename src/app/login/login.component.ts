@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginService} from './login.service'
 import { LoginModel,  RegisterModel } from './login';
-import { UserService } from '../user.service';
-import { User } from '../user';
+import { UserService } from '../Services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -53,5 +52,9 @@ export class LoginComponent implements OnInit {
 
       }
     )
+  }
+
+  clickLogout(){
+    this.loginService
   }
 }
