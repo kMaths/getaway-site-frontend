@@ -13,11 +13,9 @@ import { LoginModel, RegisterModel } from './login';
 })
 
 export class LoginService{
-
     logInStatus : boolean = false;
-
-    loginURL:string ="http://3.131.26.213:8888/spacegeecks/login" 
-    // "http://ec2-3-131-82-5.us-east-2.compute.amazonaws.com:8888/spacegeecks/login";
+    backendURL:string = "http://3.131.26.213:8888/spacegeecks/";
+    loginURL:string = `${this.backendURL}login`;
 
     constructor(private http: HttpClient){}
 
@@ -30,8 +28,7 @@ export class LoginService{
     }
 
     
-    registerURL:string = "http://3.131.26.213:8888/spacegeecks/register";
-    // "http://ec2-3-131-82-5.us-east-2.compute.amazonaws.com:8888/spacegeecks/register";
+    registerURL:string = `${this.backendURL}register`;
     postRegister(register:RegisterModel):Observable<RegisterModel>{
         return this.http.post<RegisterModel>(this.registerURL,register);
         
