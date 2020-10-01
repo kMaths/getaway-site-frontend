@@ -5,13 +5,13 @@
                 After you are done exploring mars take some time to browse our shop and look at the space-themed merchandise. 
             </div>
     <div class = "col-md-6" id="homepage_pic_text">
-            {{ImageOfTheDay.title}}<br>
-            {{ImageOfTheDay.date}}<br>
-            {{ImageOfTheDay.explanation}}<br>
+            {{ImageOfTheDay.title}}<br/>
+            {{ImageOfTheDay.date}}<br/>
+            {{ImageOfTheDay.explanation}}<br/>
             {{ImageOfTheDay.copyright}}
     </div>
     <div class = "col-md-6" id = "homepage_picture" > 
-        <img src="{{ImageOfTheDay.url}}" width="100%" height="100%" *ngIf="ImageOfTheDay.media_type == 'jpeg'">
+        <img src="{{ImageOfTheDay.url}}" width="100%" height="100%" *ngIf="ImageOfTheDay.media_type == 'image'">
         <iframe *ngIf="ImageOfTheDay.media_type == 'video'" [src]="getTrustedUrl()" width="100%" height="100%" ></iframe>
     </div>
  </div>

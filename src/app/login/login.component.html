@@ -3,8 +3,6 @@
     <div class = "col-md-6">
     <p>Register an account</p>
     <form #userForm="ngForm" >
-        {{newUser| json}}
-
         <div class="form-group ">
             <label for="username">Username:</label>
             <input type="username" class="form-control" placeholder="Enter username" id="username " name="username" [(ngModel)]="newUser.username">

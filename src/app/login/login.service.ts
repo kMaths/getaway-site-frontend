@@ -13,14 +13,10 @@ import { LoginModel, RegisterModel } from './login';
 })
 
 export class LoginService{
-
     logInStatus : boolean = false;
 
     loginURL:string ="http://3.131.26.213:8888/spacegeecks/login" 
-    // "http://ec2-3-131-82-5.us-east-2.compute.amazonaws.com:8888/spacegeecks/login";
-
     constructor(private http: HttpClient){}
-
     postLogin(login:LoginModel):Observable<User>{
         return this.http.post<User>(this.loginURL, login).pipe(map((data: User) => {
             console.log(data);
@@ -31,19 +27,19 @@ export class LoginService{
 
     
     registerURL:string = "http://3.131.26.213:8888/spacegeecks/register";
-    // "http://ec2-3-131-82-5.us-east-2.compute.amazonaws.com:8888/spacegeecks/register";
     postRegister(register:RegisterModel):Observable<RegisterModel>{
         return this.http.post<RegisterModel>(this.registerURL,register);
         
     }
 
+    logoutURL:string = "http://3.131.26.213:8888/spacegeecks/logout";
+    postLogout(x:any):Observable<any>{
+        return this.http.post(this.logoutURL,x);
+    }
+
     private handleError<T>(operation = 'operation', result?: T) {
         return (error: any): Observable<T> => {
-      
-          // TODO: send the error to remote logging infrastructure
-          console.error(error); // log to console instead
-    
-          // Let the app keep running by returning an empty result.
+          console.error(error);
           return of(result as T);
         };
       }
