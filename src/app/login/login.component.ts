@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginService} from './login.service'
 import { LoginModel,  RegisterModel } from './login';
-import { UserService } from '../user.service';
-import { User } from '../user';
+import { UserService } from '../Services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -23,6 +22,7 @@ export class LoginComponent implements OnInit {
     
   }
 
+  //method that sets all the form data to the newUser
   clickSubmit(){
     this.loginService.postRegister(this.newUser).subscribe( data =>
       {
@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
     )
   }
 
+  //method that sets that checks the userlogin information with the backend
   clickLogin(){
     
     this.loginService.postLogin(this.userLogin).subscribe( data =>
@@ -53,5 +54,9 @@ export class LoginComponent implements OnInit {
 
       }
     )
+  }
+
+  clickLogout(){
+    this.loginService
   }
 }
