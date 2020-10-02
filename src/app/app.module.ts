@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TravelModule } from './travel/travel.module';
 import { HttpClientModule } from '@angular/common/http';
+import { StorefrontComponent } from './storefront/storefront.component';
 
 
 
@@ -18,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     LoginComponent,
     NavbarComponent,
+    StorefrontComponent,
   ],
   imports: [
     BrowserModule,
