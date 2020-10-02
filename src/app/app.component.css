@@ -11,5 +11,15 @@
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
+    }
 
+#jumbotron_header{
+    text-align: center;
+    font-size: 50px;
 }
+
+#jumbotron_text{
+    text-align: center;
+    font-size: xx-large;
+}
+

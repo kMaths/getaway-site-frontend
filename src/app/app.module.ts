@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {FormsModule} from '@angular/forms'
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -9,41 +9,39 @@ import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TravelComponent } from './travel/travel.component';
 import { TravelModule } from './travel/travel.module';
-import { CartComponent } from './cart/cart.component';
 import {HttpClientModule} from '@angular/common/http';
 import { StorefrontComponent } from './storefront/storefront.component';
-import { AddToCartComponent } from './shared/cart/add-to-cart/add-to-cart.component';
-import { HeaderComponent } from './components/shared/header/header.component';
-import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
-import { ProductListComponent } from './components/shopping-cart/product-list/product-list.component';
-import { FiltersComponent } from './components/shopping-cart/filters/filters.component';
-import { CartItemComponent } from './componenets/shopping-cart/cart/cart-item/cart-item.component';
-import { ProductItemComponent } from './components/shopping-cart/product-list/product-item/product-item.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { ProductListComponent } from './shopping-cart/product-list/product-list.component';
+import { FiltersComponent } from './shopping-cart/filters/filters.component';
+import { CartItemComponent } from './shopping-cart/cart/cart-item/cart-item.component';
+import { ProductItemComponent } from './shopping-cart/product-list/product-item/product-item.component';
+import { CartComponent } from './shopping-cart/cart/cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
+    TravelComponent,
     NavbarComponent,
-    CartComponent,
     StorefrontComponent,
-    AddToCartComponent,
-    HeaderComponent,
     ShoppingCartComponent,
     ProductListComponent,
     FiltersComponent,
     CartItemComponent,
     ProductItemComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
     NgbModule,
     AppRoutingModule,
-    TravelModule
-    // HttpClientModule,
+    TravelModule,
+    FormsModule,
+     HttpClientModule,
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule {

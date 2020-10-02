@@ -9,12 +9,12 @@ import { ProductService} from 'src/app/services/product.service';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  products: Product[]= []
+  products: Product[]= []// property created to make an array of "product/object"
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService) { } //injection of product service
 
   ngOnInit() {
-    this.products = this.products.getProducts()
+    this.products = this.productService.getProducts() //pulling in everything in the statis array from product service
   }
 
 }

@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuardService } from './Services/auth-guard.service';
 import { TravelComponent } from './travel/travel.component';
-import { CartComponent } from './cart/cart.component';
+import { CartComponent } from './shopping-cart/cart/cart.component';
 import { StorefrontComponent} from './storefront/storefront.component'
 
 const routes: Routes = [

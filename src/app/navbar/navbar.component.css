@@ -1,0 +1,15 @@
+/* the @media is a  conditional line of code that looks at what is in the ().
+as long as the condtion is meet then it will use the css that you have written in it */
+@media(min-width: 992px){
+    li{
+        padding-left: 6em;
+        padding-right: 5em;
+    }
+}
+@media(max-width: 991px){
+    li{
+
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+}

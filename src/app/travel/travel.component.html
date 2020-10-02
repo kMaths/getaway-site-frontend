@@ -1,14 +1,18 @@
 <head><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous"></head>
 <body>
-<div class="container text-center">
-    <div class="row content">
-      <div class="col-sm-2">
-        <p><button (click)="sol()" type="button" class="btn btn-default" id="up">
-          <i class="fas fa-arrow-up"></i>
-        </button></p>
-        <p><button (click)="sol()" type="button" class="btn btn-default" id="down">
-          <i class="fas fa-arrow-down"></i>
-        </button></p>
+
+<div class="row" id="navPage">
+    <div class="col-sm-6" >
+      <!--Put a div in a div to allow scrolling-->
+      <div id='choices'>
+      <!--Move one sol foreward or back-->
+        <div class="content">
+          <p><button (click)="setSol(1)" type="button" class="btn btn-default" id="up">
+              <i class="fas fa-arrow-up"></i> Next Sol
+            </button>
+          <button (click)="setSol(-1)" type="button" class="btn btn-default" id="down">
+              <i class="fas fa-arrow-down"></i> Previous Sol
+            </button></p>
         
       </div>
       <div class="col-sm-6">
@@ -45,40 +49,95 @@
             Mars Hand Lens Imager
           </label>
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="cameraAnswer" id="MARDI" value="Mars Descent Imager">
-          <label class="form-check-label" for="MARDI">
-            Mars Descent Imager
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="cameraAnswer" id="NAVCAM" value="Navigation Camera">
-          <label class="form-check-label" for="NAVCAM">
-            Navigation Camera
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="cameraAnswer" id="PANCAM" value="Panoramic Camera">
-          <label class="form-check-label" for="PANCAM">
-            Panoramic Camera
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="cameraAnswer" id="MINITES" value="Miniature Thermal Emission Spectrometer">
-          <label class="form-check-label" for="MINITES">
-            Miniature Thermal Emission Spectrometer (Mini-TES)
-          </label>
-        </div>
         
-        <div class="text-left">
-          <br/> <!--ToDo: Fix padding so this break isn't necessary-->
-          <p>Rover: </p>
-          <p>Sol: </p>
-          <p>Earth Day:</p>
-          <p>Launch Day: </p>
-          <p>Landing Day: </p>
-          <p>Status: </p>
+        <!--Radio buttons for camera selection-->
+        <!--The disables attribute disables the radio button if the exression evaluates to true-->
+        <div class="form-group">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="cameraAnswer" id="FHAZ" value="Front Hazard Avoidance Camera"
+              checked (click)="setCameraName($event)">
+            <label class="form-check-label" for="FHAZ">
+              Front Hazard Avoidance Camera
+            </label>
+          </div>
+          <div class="form-check">
+            <input (click)="setCameraName($event)" class="form-check-input" type="radio" name="cameraAnswer" id="RHAZ"
+              value="Rear Hazard Avoidance Camera">
+            <label class="form-check-label" for="RHAZ">
+              Rear Hazard Avoidance Camera
+            </label>
+          </div>
+          <div class="form-check">
+            <input [disabled]='!isCuriosity()' (click)="setCameraName($event)" class="form-check-input" type="radio"
+              name="cameraAnswer" id="MAST" value="Mast Camera">
+            <label class="form-check-label" for="MAST">
+              Mast Camera
+            </label>
+          </div>
+          <div class="form-check">
+            <input [disabled]='!isCuriosity()' (click)="setCameraName($event)" class="form-check-input" type="radio"
+              name="cameraAnswer" id="CHEMCAM" value="Chemistry and Camera Complex">
+            <label class="form-check-label" for="CHEMCAM">
+              Chemistry and Camera Complex
+            </label>
+          </div>
+          <div class="form-check">
+            <input [disabled]='!isCuriosity()' (click)="setCameraName($event)" class="form-check-input" type="radio"
+              name="cameraAnswer" id="MAHLI" value="Mars Hand Lens Imager">
+            <label class="form-check-label" for="MAHLI">
+              Mars Hand Lens Imager
+            </label>
+          </div>
+          <div class="form-check">
+            <input [disabled]='!isCuriosity()' (click)="setCameraName($event)" class="form-check-input" type="radio"
+              name="cameraAnswer" id="MARDI" value="Mars Descent Imager">
+            <label class="form-check-label" for="MARDI">
+              Mars Descent Imager
+            </label>
+          </div>
+          <div class="form-check">
+            <input (click)="setCameraName($event)" class="form-check-input" type="radio" name="cameraAnswer" id="NAVCAM"
+              value="Navigation Camera">
+            <label class="form-check-label" for="NAVCAM">
+              Navigation Camera
+            </label>
+          </div>
+          <div class="form-check">
+            <input [disabled]='isCuriosity()' (click)="setCameraName($event)" class="form-check-input" type="radio"
+              name="cameraAnswer" id="PANCAM" value="Panoramic Camera">
+            <label class="form-check-label" for="PANCAM">
+              Panoramic Camera
+            </label>
+          </div>
+          <div class="form-check">
+            <input [disabled]='isCuriosity()' (click)="setCameraName($event)" class="form-check-input" type="radio"
+              name="cameraAnswer" id="MINITES" value="Miniature Thermal Emission Spectrometer">
+            <label class="form-check-label" for="MINITES">
+              Miniature Thermal Emission Spectrometer (Mini-TES)
+            </label>
+          </div>
         </div>
+
+        
+        <!--Rover and image information, only shows if pictures are available-->
+        <div *ngIf='this.firstPic' class="content">
+          <p>Information about these pictures:</p>
+          <p>Rover Name: {{this.firstPic.rover.name}}</p>
+          <p>Sol: {{this.firstPic.sol}}</p>
+          <p>Earth Day: {{this.firstPic.earth_date | date}}</p>
+          <p>Launch Day: {{this.firstPic.rover.launch_date | date}}</p>
+          <p>Landing Day: {{this.firstPic.rover.landing_date | date}}</p>
+          <p>Status: {{this.firstPic.rover.status}}</p>
+        </div>
+      </div>
+    </div>
+      
+    <div class="col-sm-6" id='pics' >
+      <!--Shows a message if no images were fetched-->
+      <p *ngIf='!this.firstPic'>Sorry! No images were found <br> Try a different camera or Sol</p>
+      <!--Shows all the images fetched from the NASA API-->
+      <div class="content" *ngFor="let roverImage of roverImages">
+        <img [src]="roverImage.img_src">
       </div>
     </div>
   </div>
