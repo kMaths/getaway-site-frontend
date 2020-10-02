@@ -12,6 +12,10 @@ import { CartComponent } from './cart/cart.component';
 
 
 import {HttpClientModule} from '@angular/common/http';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { FiltersComponent } from './cart/filters/filters.component';
+import { ProductListComponent } from './cart/product-list/product-list.component';
+import { KcartComponent } from './cart/kcart/kcart.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +24,9 @@ import {HttpClientModule} from '@angular/common/http';
     LoginComponent,
     NavbarComponent,
     CartComponent,
+    FiltersComponent,
+    ProductListComponent,
+    KcartComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,6 +34,7 @@ import {HttpClientModule} from '@angular/common/http';
     AppRoutingModule,
     TravelModule,
     HttpClientModule,
+    NoopAnimationsModule,
 
   ],
   providers: [],
