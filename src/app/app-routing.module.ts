@@ -4,12 +4,17 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './Services/auth-guard.service';
 import { TravelComponent } from './travel/travel.component';
+import { CartComponent } from './shopping-cart/cart/cart.component';
+import { StorefrontComponent} from './storefront/storefront.component'
 
 const routes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'home', component: HomeComponent},
     {path: 'login', component: LoginComponent},
-    {path: 'travel/:roverName', component: TravelComponent, canActivate: [AuthGuardService]},
+    {path: 'storefront', component: StorefrontComponent},
+    {path: 'travel/:roverName', component: TravelComponent},
+    {path: 'cart', component: CartComponent},
+
 ];
 
 @NgModule({
