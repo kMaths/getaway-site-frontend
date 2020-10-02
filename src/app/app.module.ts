@@ -18,6 +18,9 @@ import { CartItemComponent } from './shopping-cart/cart/cart-item/cart-item.comp
 import { ProductItemComponent } from './shopping-cart/product-list/product-item/product-item.component';
 import { CartComponent } from './shopping-cart/cart/cart.component';
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
