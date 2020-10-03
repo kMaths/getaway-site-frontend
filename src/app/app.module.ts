@@ -8,7 +8,10 @@ import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TravelModule } from './travel/travel.module';
-import { HttpClientModule } from '@angular/common/http';
+// import { CartComponent } from './cart/cart.component';
+import { StorefrontComponent } from './storefront/storefront.component';
+import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -18,6 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     LoginComponent,
     NavbarComponent,
+    // CartComponent,
+    StorefrontComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     TravelModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    HttpClientJsonpModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]

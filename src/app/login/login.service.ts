@@ -15,6 +15,9 @@ import { LoginModel, RegisterModel } from './login';
 export class LoginService{
     logInStatus : boolean = false;
 
+    //Used this service to handle the login component talking to the backend 
+    
+    //login will use the form data and send a post request
     loginURL:string ="http://3.131.26.213:8888/spacegeecks/login" 
     constructor(private http: HttpClient){}
     postLogin(login:LoginModel):Observable<User>{
@@ -25,16 +28,17 @@ export class LoginService{
         )
     }
 
-    
+    //register will use the form data and send a post request
     registerURL:string = "http://3.131.26.213:8888/spacegeecks/register";
     postRegister(register:RegisterModel):Observable<RegisterModel>{
         return this.http.post<RegisterModel>(this.registerURL,register);
         
     }
 
+    //logout will clear the user and send you back to the homepage
     logoutURL:string = "http://3.131.26.213:8888/spacegeecks/logout";
-    postLogout(x:any):Observable<any>{
-        return this.http.post(this.logoutURL,x);
+    postLogout(logout:any):Observable<any>{
+        return this.http.post(this.logoutURL,logout);
     }
 
     private handleError<T>(operation = 'operation', result?: T) {
