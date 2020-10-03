@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-=======
-import { StorefrontService } from './storefront.service';
 import { Storefront } from './storefront'
 import { NgForOf } from '@angular/common';
 import { StorefrontImage } from './storefront-image';
->>>>>>> 880069dad291d973775ea1ca43d9a04e7838eca3
+import { StorefrontService } from '../services/storefront.service';
 
 @Component({
   selector: 'app-storefront',
@@ -14,14 +11,6 @@ import { StorefrontImage } from './storefront-image';
 })
 export class StorefrontComponent implements OnInit {
 
-<<<<<<< HEAD
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
-=======
   marsProducts: Storefront[];
   productImages: StorefrontImage[];
   
@@ -46,4 +35,3 @@ export class StorefrontComponent implements OnInit {
   }
 
 }
->>>>>>> 880069dad291d973775ea1ca43d9a04e7838eca3

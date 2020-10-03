@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientJsonpModule, HttpHeaders, HttpRequest, JsonpClientBackend } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Storefront } from './storefront';
 import { map } from 'rxjs/operators';
-import { StorefrontImage } from './storefront-image';
+import { Storefront } from '../storefront/storefront';
+import { StorefrontImage } from '../storefront/storefront-image';
 
 
 @Injectable({
