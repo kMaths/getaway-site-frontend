@@ -1,0 +1,35 @@
+.sm-banner {
+  color: brown;
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+.row {
+  margin: auto;
+  width: 40%;
+  padding: 10px;
+}
+
+.carousel-row {
+  height: 40%;
+  margin: auto;
+  width: 40%;
+  border: 3px solid #73AD21;
+  padding: 10px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: auto; 
+  grid-gap: 1rem;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+   
+.card {
+  border: 2px solid #e7e7e7;
+  height: 100%;
+  border-radius: 4px;
+  padding: .5rem;   
+}
