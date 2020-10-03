@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { StorefrontComponent } from './storefront/storefront.component';
-import { CartComponent } from './cart/cart.component';
+import { AuthGuardService } from './Services/auth-guard.service';
 import { TravelComponent } from './travel/travel.component';
 
 const routes: Routes = [
@@ -12,7 +12,7 @@ const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'browse', component: StorefrontComponent},
     {path: 'travel/:roverName', component: TravelComponent},
-    {path: 'cart', component: CartComponent},
+    // {path: 'cart', component: CartComponent},
 ];
 
 @NgModule({
