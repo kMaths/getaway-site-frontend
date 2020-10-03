@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StorefrontService } from './storefront.service';
 import { Storefront } from './storefront'
 import { NgForOf } from '@angular/common';
+import { StorefrontImage } from './storefront-image';
 
 @Component({
   selector: 'app-storefront',
@@ -11,6 +12,8 @@ import { NgForOf } from '@angular/common';
 export class StorefrontComponent implements OnInit {
 
   marsProducts: Storefront[];
+  productImages: StorefrontImage[];
+  
 
   constructor(private storefrontService : StorefrontService) { }
 
@@ -18,10 +21,17 @@ export class StorefrontComponent implements OnInit {
 
     // this.http.get<storeFront[]>(this.url).pipe(map(data => data['results']));
 
-    this.storefrontService.getAllMarsProducts().subscribe(data => this.marsProducts = data);
-    console.log(this.marsProducts);
-    for (let storefront of this.marsProducts){
-      this.storefrontService.getMarsProductImage(storefront).subscribe(data => storefront = data);
-    }
+    this.storefrontService.getAllMarsProducts().subscribe(data => {
+      this.marsProducts = data;
+      for (let storefront of this.marsProducts){
+       this.storefrontService.getMarsProductImage(storefront).subscribe(result => {
+        this.productImages = result;
+        console.log(this.productImages);
+        storefront.image = this.productImages[0].url_fullxfull});
+       
+      }
+      console.log(this.marsProducts)
+    })
   }
+
 }

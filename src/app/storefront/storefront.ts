@@ -5,4 +5,5 @@ export interface Storefront{
   cost:string;
   currency_code:string;
   url_fullxfull:string[];
+  image: string;
 }
