@@ -57,6 +57,7 @@ export class LoginComponent implements OnInit {
   }
 
   clickLogout(){
-    this.loginService
+    this.loginService.logInStatus = false;
+    this.userService.user = null;
   }
 }
