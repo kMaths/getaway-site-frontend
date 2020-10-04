@@ -11,7 +11,7 @@ const routes: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'login', component: LoginComponent},
     {path: 'browse', component: StorefrontComponent},
-    {path: 'travel/:roverName', component: TravelComponent},
+    {path: 'travel/:roverName', component: TravelComponent, canActivate: [AuthGuardService]},
     // {path: 'cart', component: CartComponent},
 ];
 
