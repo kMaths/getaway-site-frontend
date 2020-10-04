@@ -2,8 +2,15 @@ export interface Storefront{
   listing_id:string;
   title:string;
   description:string;
-  cost:string;
+  price:string;
   currency_code:string;
-  url_fullxfull:string[];
+  url_170x135:string[];
   image: string;
+}
+
+export class StorefrontModel {
+  listing_id:string;
+  title:string;
+  price:string;
+  currency_code:string;
 }

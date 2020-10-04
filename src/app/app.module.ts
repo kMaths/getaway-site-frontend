@@ -8,13 +8,13 @@ import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TravelModule } from './travel/travel.module';
-// import { CartComponent } from './cart/cart.component';
 import { StorefrontComponent } from './storefront/storefront.component';
 import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FiltersComponent } from './cart/filters/filters.component';
 import { ProductListComponent } from './cart/product-list/product-list.component';
 import { KcartComponent } from './cart/kcart/kcart.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +22,12 @@ import { KcartComponent } from './cart/kcart/kcart.component';
     HomeComponent,
     LoginComponent,
     NavbarComponent,
-    StorefrontComponent
-    CartComponent,
+    StorefrontComponent,
+    KcartComponent,
     FiltersComponent,
     ProductListComponent,
     KcartComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +36,7 @@ import { KcartComponent } from './cart/kcart/kcart.component';
     TravelModule,
     HttpClientModule,
     FormsModule,
-    HttpClientJsonpModule
+    HttpClientJsonpModule,
     NoopAnimationsModule,
   ],
   providers: [HttpClientModule],

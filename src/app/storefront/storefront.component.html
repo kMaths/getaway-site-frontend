@@ -22,9 +22,6 @@
       <div class="carousel-item">
         <img class="d-block w-100" src="\assets\images\valles-marineris.jpg" alt="Third slide">
       </div>
-      <!-- <div class="carousel-item">
-        <img class="d-block w-100" src="\assets\images\marklar.png" alt="Third slide">
-      </div> -->
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -55,11 +52,29 @@
       <div class="card-content" *ngFor="let product of marsProducts">
 
         <img [src]="product.image">
-        
-         <p>Title</p>
-        <p>Quantity</p>
+      
+        <ul>
+          <li *ngFor="let storefront of marsProducts">
+              {{storefront.title}}
+            <div id="div2" style="max-height:100px;overflow:auto;border:1px solid rgb(0, 0, 0);">              
+              {{storefront.description}}
+            </div>  
+              {{storefront.price}}
+              {{storefront.currency_code}}
+              <br>
+            <button type="Submit" class="btn btn-primary" (click)="submitStorefrontItem(storefront)">Add to Cart</button> 
+          </li>
+        </ul>
 
-     </div><!-- .card-content -->
+        <!-- // submit ... add to cart -->
+        
+        
+        <!-- We need a form 
+              The form will have a submit button 
+      -->
+
+     </div>
+     <!-- .card-content -->
 
 
 

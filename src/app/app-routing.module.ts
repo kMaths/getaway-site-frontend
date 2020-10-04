@@ -5,6 +5,8 @@ import { LoginComponent } from './login/login.component';
 import { StorefrontComponent } from './storefront/storefront.component';
 import { AuthGuardService } from './Services/auth-guard.service';
 import { TravelComponent } from './travel/travel.component';
+import { KcartComponent } from './cart/kcart/kcart.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -12,7 +14,7 @@ const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'browse', component: StorefrontComponent},
     {path: 'travel/:roverName', component: TravelComponent},
-    // {path: 'cart', component: CartComponent},
+    {path: 'cart', component: CartComponent},
 ];
 
 @NgModule({

@@ -1,0 +1,15 @@
+<h3>Your Shopping Cart</h3>
+
+
+<div>
+    <ul>
+      <li *ngFor="let cartItem of allCartItems">
+          {{cartItem.title}}
+          {{storefront.price}}
+          {{storefront.currency_code}}
+          <br>
+        <button type="Submit" class="btn btn-primary" (click)="submitStorefrontItem()">Add to Cart</button> 
+      </li>
+    </ul>
+    <button type="submit" (click)="purchaseCart()">Checkout Cart</button>
+  </div>

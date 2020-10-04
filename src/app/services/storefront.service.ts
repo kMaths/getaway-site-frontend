@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientJsonpModule, HttpHeaders, HttpRequest, JsonpClientBackend } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Storefront } from '../storefront/storefront';
+import { Storefront, StorefrontModel } from '../storefront/storefront';
 import { StorefrontImage } from '../storefront/storefront-image';
 
 
@@ -12,7 +12,7 @@ import { StorefrontImage } from '../storefront/storefront-image';
 export class StorefrontService {
 
   private storefrontUrl: string = "https://openapi.etsy.com/v2/listings/active.js?callback=callback&keywords=mars%20space&limit=1&api_key=m8ud7nm45drvcvdc7geg3tod";
-  private url: string;
+
   callback = 'callback';
   
   //This really should be kept in an environmental variable/otherwise put in .gitignore because it's private info
@@ -22,21 +22,49 @@ export class StorefrontService {
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', }),
-    
   };
 
   constructor(private http: HttpClient, private jsonp: HttpClientJsonpModule){
 
   }
 
-  getAllMarsProducts(callback = 'callback') : Observable<Storefront[]> {
-    // return this.http.get<Storefront[]>(this.storefrontUrl)
-    // options in header how to add headers to request
-    
+  getAllMarsProducts(callback = 'callback') : Observable<Storefront[]> { 
     return this.http.jsonp(this.storefrontUrl, callback).pipe(map(result => result['results'])); 
   }
 
   getMarsProductImage(storefront : Storefront) : Observable<StorefrontImage[]> {
     return this.http.jsonp(this.baseImageUrl + storefront.listing_id + "/images.js?callback=callback&api_key=" + this.apiKey, this.callback).pipe(map(data => data['results']));
   }
+
+  postStorefrontItemUrl:string = "http://3.131.26.213:8888/spacegeecks/storefront";
+  postStorefrontItem(newStorefront:StorefrontModel):Observable<StorefrontModel>{
+    return this.http.post<StorefrontModel>(this.postStorefrontItemUrl, newStorefront);
+  }
 }
+
+
+
+
+  //method that posts 
+  // clickLogin(){
+    
+  //   this.loginService.postLogin(this.userLogin).subscribe( data =>
+  //     {
+  //       if( data){
+  //         if(data == this.userService.user){
+  //           this.loginMessage = "You are already signed in"
+  //         } else {
+  //           this.userService.user = data;
+  //           this.userService.logInStatus = true;
+  //           this.loginMessage = "You have successfully logged in!";
+  //         }
+  //       } else {
+  //         this.loginMessage = "Sorry, wrong username or password";
+  //       }
+
+  //     }
+  //   )
+  // }
+ // return this.http.get<Storefront[]>(this.storefrontUrl)
+    // options in header how to add headers to request
+    

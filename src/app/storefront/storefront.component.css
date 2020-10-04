@@ -33,3 +33,7 @@
   border-radius: 4px;
   padding: .5rem;   
 }
+
+ul {
+  list-style: none;
+}
