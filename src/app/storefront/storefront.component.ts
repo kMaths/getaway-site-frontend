@@ -22,7 +22,8 @@ export class StorefrontComponent implements OnInit {
         this.storefrontService.getMarsProductImage(storefront).subscribe(result => {
           this.productImages = result;
           console.log(this.productImages);
-          storefront.image = this.productImages[0].url_170x135;
+          storefront.image = this.productImages[0].url_fullXfull;
+          console.log(this.marsProducts)
         });
       }
     })

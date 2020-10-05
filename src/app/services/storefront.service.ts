@@ -11,7 +11,7 @@ import { StorefrontImage } from '../storefront/storefront-image';
 })
 export class StorefrontService {
 
-  private storefrontUrl: string = "https://openapi.etsy.com/v2/listings/active.js?callback=callback&keywords=mars%20space&limit=1&api_key=m8ud7nm45drvcvdc7geg3tod";
+  private storefrontUrl: string = "https://openapi.etsy.com/v2/listings/active.js?callback=callback&keywords=mars%20space&limit=2&api_key=m8ud7nm45drvcvdc7geg3tod";
 
   callback = 'callback';
   
@@ -29,16 +29,23 @@ export class StorefrontService {
   }
 
   getAllMarsProducts(callback = 'callback') : Observable<Storefront[]> { 
+    console.log(this.http.jsonp(this.storefrontUrl, callback).pipe(map(result => result['results'])))
     return this.http.jsonp(this.storefrontUrl, callback).pipe(map(result => result['results'])); 
   }
 
   getMarsProductImage(storefront : Storefront) : Observable<StorefrontImage[]> {
+    console.log(this.http.jsonp(this.baseImageUrl + storefront.listing_id + "/images.js?callback=callback&api_key=" + this.apiKey, this.callback).pipe(map(data => data['results'])))
     return this.http.jsonp(this.baseImageUrl + storefront.listing_id + "/images.js?callback=callback&api_key=" + this.apiKey, this.callback).pipe(map(data => data['results']));
   }
 
-  postStorefrontItemUrl:string = "http://3.131.26.213:8888/spacegeecks/storefront";
+  postStorefrontItemUrl:string = "http://3.131.26.213:8080/spacegeecks/storefront";
   postStorefrontItem(newStorefront:StorefrontModel):Observable<StorefrontModel>{
+    if (this.http.post<StorefrontModel>(this.postStorefrontItemUrl, newStorefront)){
+      alert("The item has been added to your cart!")
     return this.http.post<StorefrontModel>(this.postStorefrontItemUrl, newStorefront);
+    } else {
+      alert("Something went wrong. Please call Etsy customer service at ???????? for further information.")
+    }
   }
 }
 
