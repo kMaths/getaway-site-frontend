@@ -18,7 +18,7 @@ export class LoginService{
     //Used this service to handle the login component talking to the backend 
     
     //login will use the form data and send a post request
-    loginURL:string ="http://3.131.26.213:8888/spacegeecks/login" 
+    loginURL:string ="http://3.131.26.213:8080/spacegeecks/login" 
     constructor(private http: HttpClient){}
     postLogin(login:LoginModel):Observable<User>{
         return this.http.post<User>(this.loginURL, login).pipe(map((data: User) => {
@@ -29,14 +29,14 @@ export class LoginService{
     }
 
     //register will use the form data and send a post request
-    registerURL:string = "http://3.131.26.213:8888/spacegeecks/register";
+    registerURL:string = "http://3.131.26.213:8080/spacegeecks/register";
     postRegister(register:RegisterModel):Observable<RegisterModel>{
         return this.http.post<RegisterModel>(this.registerURL,register);
         
     }
 
     //logout will clear the user and send you back to the homepage
-    logoutURL:string = "http://3.131.26.213:8888/spacegeecks/logout";
+    logoutURL:string = "http://3.131.26.213:8080/spacegeecks/logout";
     postLogout(logout:any):Observable<any>{
         return this.http.post(this.logoutURL,logout);
     }
