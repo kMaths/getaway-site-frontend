@@ -4,7 +4,7 @@ export interface Storefront{
   description:string;
   price:string;
   currency_code:string;
-  url_fullXfull:string[];
+  url_fullxfull:string[];
   image: string;
 }
 

@@ -11,7 +11,7 @@ import { StorefrontImage } from '../storefront/storefront-image';
 })
 export class StorefrontService {
 
-  private storefrontUrl: string = "https://openapi.etsy.com/v2/listings/active.js?callback=callback&keywords=mars%20space&limit=2&api_key=m8ud7nm45drvcvdc7geg3tod";
+  private storefrontUrl: string = "https://openapi.etsy.com/v2/listings/active.js?callback=callback&keywords=mars%20space&limit=8&api_key=m8ud7nm45drvcvdc7geg3tod";
 
   callback = 'callback';
   
