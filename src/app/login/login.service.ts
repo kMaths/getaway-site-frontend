@@ -23,7 +23,6 @@ export class LoginService{
     constructor(private http: HttpClient){}
     postLogin(login:LoginModel):Observable<User>{
         return this.http.post<User>(this.loginURL, login).pipe(map((data: User) => {
-            console.log(data);
             return data;
            }), catchError(this.handleError<User>('postLogin', ))
         )

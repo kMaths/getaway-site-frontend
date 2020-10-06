@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   //method that sets all the form data to the newUser
   clickSubmit(){
     this.loginService.postRegister(this.newUser).subscribe( data =>
-      { console.log(data)
+      { 
         if(data){
           this.userService.user = data;
           this.userService.logInStatus = true;
