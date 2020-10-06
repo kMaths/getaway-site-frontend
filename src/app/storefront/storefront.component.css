@@ -1,10 +1,105 @@
-.sm-banner {
+h3 {
   color: brown;
-  font-size: 1.5rem;
-  font-weight: bolder;
+  font-size: 2rem;
+  text-align: center;
 }
 
-.row {
+p {
+  color: brown;
+  font-size: 1.3rem;
+  line-height: 130%;
+}
+
+.sm-banner {
+  color: brown;
+  font-size: 2rem;
+  font-weight: bolder;
+  padding: 6%;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+}
+
+.grid-container-storefront-items {
+  display: flex;
+  flex-flow: column;
+  border:  1px solid black;
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.top-row-div {
+  min-width: 45%;
+  max-width: 45%;
+  padding: 0;
+  margin: 0;
+}
+
+.tour-info-div {
+  min-width: 20%;
+  max-width: 20%;
+  padding: 0;
+  margin: 0;
+  float: right;
+}
+
+.parent-div {
+  width: 100%;
+}
+
+.product-title {
+  font-size: 1.5rem;
+  line-height: 110%;
+  padding-left: 6%;
+  padding-top: 3%;
+}
+
+.product-description {
+  font-size: 1rem;
+}
+
+.product-price {
+  color: brown;
+  font-size: 1rem;
+  padding-top: .5%;
+}
+
+.purchase-button {
+  align-self: right;
+}
+
+
+/* id="div2" style="max-height:100px;overflow:auto;border:1px solid rgb(0, 0, 0);" */
+/* div {
+  width: 100%;
+} */
+
+
+/* img {
+  max-width: 100%;
+  max-height: 100%;
+} */
+
+/* .grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.grid-container > div {
+  text-align: left;
+  padding: 20px 0;
+  font-size: 30px;
+} */
+
+/* .item1, .item2 {
+  grid-row: 1 / span 2;
+} */
+
+/* .row {
   margin: auto;
   width: 40%;
   padding: 10px;
@@ -13,7 +108,7 @@
 .carousel-row {
   height: 40%;
   margin: auto;
-  width: 40%;
+  width: 60%;
   border: 3px solid #73AD21;
   padding: 10px;
 }
@@ -32,51 +127,4 @@
   height: 100%;
   border-radius: 4px;
   padding: .5rem;   
-}
-
-ul {
-  list-style: none;
-}
-
-img {
-  max-width: 100%;
-  max-height: 100%;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 10px;
-  padding: 10px;
-}
-
-.grid-container > div {
-  text-align: left;
-  padding: 20px 0;
-  font-size: 30px;
-}
-
-.item1 {
-  grid-row: 1 / span 2;
-}
-
-
-.grid-container-storefront-items {
-  display: grid;
-  grid-template-rows: repeat(2, 30%);
-  grid-template-columns: repeat(4, 20%);  
-  /* grid: 150px / auto auto auto auto; */
-  /* grid-gap: 10px; */
-  /* padding: 10px; */
-}
-
-/* .grid-container-storefront-items > div {
-   padding: 20px 0;
-} */
-
-/* .item-card-content{
-  min-width: 150px;
-  min-height: 800px;
-  box-sizing: border-box;
-  display: block;
 } */
