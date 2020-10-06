@@ -15,5 +15,6 @@ export interface Item {
 
 }
 export interface Role {
-
+    id : number;
+    name : string;
 }
