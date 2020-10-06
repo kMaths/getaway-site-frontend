@@ -56,7 +56,27 @@ img {
   font-size: 30px;
 }
 
-.item1, .item2 {
+.item1 {
   grid-row: 1 / span 2;
 }
 
+
+.grid-container-storefront-items {
+  display: grid;
+  grid-template-rows: repeat(2, 30%);
+  grid-template-columns: repeat(4, 20%);  
+  /* grid: 150px / auto auto auto auto; */
+  /* grid-gap: 10px; */
+  /* padding: 10px; */
+}
+
+/* .grid-container-storefront-items > div {
+   padding: 20px 0;
+} */
+
+/* .item-card-content{
+  min-width: 150px;
+  min-height: 800px;
+  box-sizing: border-box;
+  display: block;
+} */
