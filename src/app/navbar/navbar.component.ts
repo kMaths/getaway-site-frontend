@@ -18,8 +18,8 @@ export class NavbarComponent implements OnInit {
 
   //When you Click the signout button this will call the postLogout method anc clear the user 
    clickLogout(){
-    this.loginService.postLogout(this.userService);
-    console.log("logged out");
+    this.loginService.postLogout();
+    window.alert("You have logged out")
     this.userService.logInStatus = false;
     this.userService.user = null;
   }
