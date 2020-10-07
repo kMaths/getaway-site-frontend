@@ -1,73 +1,88 @@
-<br>
-<div class="container">
-  <div class="row">
-    <div class="sm-banner">
-      Special Deals and Tours for Members!
+<!-- size this right -->
+<div class="sm-banner">
+  Sign up for tours of Martian hotspots!
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100" src="\assets\images\olympus-mons.jpg" alt="Olympus Mons, giant flat top volcano">
+        </div>
+        <div class="carousel-item"  style="padding-top: 14px;">
+          <img class="d-block w-100" src="\assets\images\medusae-fossae.jpg" alt="Medusae-fossae, wide-ranging volcano trenches">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="\assets\images\valles-marineris.jpg" alt="Valles-marineris, great canyons spreading across face of the planet">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
+  </div>
+  <div class="col-md-4">
+    <h3><strong>Getaway Tours</strong></h3>
+    <p>
+      <strong>Come see the most magnificent sites of our beautiful red home away from home ...</strong>
+    </p>
+    <p>
+      <strong>Olympus Mons, a shield volcano the size of Arizona!</strong>
+    </p>
+    <p>
+      <strong>The Medusae-fossae, bizarre impressions along a rugged landscape!</strong>
+    </p>
+    <p>
+      <strong>The Valles-marineris, a vast canyon system five times the size of the Grand Canyon! </strong>
+    </p>
+    <p>
+      <strong>Call Martian Getaways Tour Director Federica Federbaum at 03-555-5555 for details!</strong>
+    </p>
   </div>
 </div>
 
-
-<br>
-<div class="container" class="carousel-row">
-  
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img class="d-block w-100" src="\assets\images\olympus-mons.jpg" alt="First slide">
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="\assets\images\medusae-fossae.jpg" alt="Second slide">
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="\assets\images\valles-marineris.jpg" alt="Third slide">
-      </div>
-      <!-- <div class="carousel-item">
-        <img class="d-block w-100" src="\assets\images\marklar.png" alt="Third slide">
-      </div> -->
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
+<div class="sm-banner">
+  Check out Mars- and space-related goodies on Etsy!
 </div>
 
-<br>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8" class="sm-banner">
-        Check out Mars-related Items on Etsy!
-      </div>
-    </div>
-  </div>
-  
-  <br>
 
-  <section class="cards">
-    <article class="card">
-    <picture class="thumbnail">
-    </picture>
-      <div class="card-content" *ngFor="let product of marsProducts">
-
-        <img [src]="product.image">
-        
-         <p>Title</p>
-        <p>Quantity</p>
-
-     </div><!-- .card-content -->
-
-
-
-
-      <footer>
-        <div class="post-meta">
-          <!-- <span class="timestamp"><i class="fa fa-clock-o"></i> 6 mins ago</span> -->
-          <!-- <span class="comments"><i class="fa fa-comments"></i><a href="#"> 11 comments</a></span> -->
+<div class="grid-container-storefront-items">
+  <ul *ngFor="let product of marsProducts">
+    <li>
+      <article>
+        <div class="row">
+          <div class="col-md-2">
+            <img [src]="product.image">
           </div>
-      </footer>
-    </article>
+          <div class="col-md-8 product-title">
+            <strong>{{product.title}}</strong>
+          </div>
+        </div>
+          <br>
+        <div class="product-description">              
+          {{product.description}}
+        </div>
+          <br>
+            <div class="row">
+              <div class="col-md-2 product-price">
+                <strong>Price: ${{product.price}}</strong>
+              </div>
+              <div class="col-md-10 purchase-button">
+                <button type="Submit" class="btn btn-primary" (click)="submitStorefrontItem(product)">Add to Cart</button> 
+              </div>
+            </div> 
+            
+          <br>
+        <br>
+        <hr>
+        <br>
+      </article>
+    </li>
+  </ul>
+</div>
