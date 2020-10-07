@@ -1,5 +1,5 @@
 export interface Storefront{
-  listing_id:string;
+  listing_id:number;
   title:string;
   description:string;
   price:string;

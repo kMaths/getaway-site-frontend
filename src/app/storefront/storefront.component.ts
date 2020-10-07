@@ -12,6 +12,7 @@ export class StorefrontComponent implements OnInit {
 
   marsProducts: Storefront[];
   productImages: StorefrontImage[];
+  temp : Storefront;
 
   constructor(private storefrontService: StorefrontService) { }
 
@@ -30,9 +31,11 @@ export class StorefrontComponent implements OnInit {
   }
 
   //as user selects an item, tell backend an item was added .... post to backend      
-  submitStorefrontItem(newStorefront: StorefrontModel) {
-    this.storefrontService.postStorefrontItem(newStorefront)
-    //add error handler
+  submitStorefrontItem(newStorefront: Storefront) {
+    console.log(newStorefront);
+    this.storefrontService.postStorefrontItem(newStorefront).subscribe(data => {
+      
+    });
   }
 
 }
