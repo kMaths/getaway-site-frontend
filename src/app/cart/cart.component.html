@@ -3,20 +3,20 @@
   <div class="card-header">
     Your shopping Cart
   </div>
-  <ul>
-    <li *ngFor="let cartItem of allCartItems">
+  <ul *ngFor="let cartItem of allCartItems">
+    <li>
         {{cartItem.title}}
         {{storefront.price}}
        
         <br>
       <button id="myBtn" type="Submit" class="btn btn-primary" (click)="submitStorefrontItem()">Add to Cart</button>
-      <script>
-        document.getElementById("myBtn").addEventListener("click", displayDate);
-        
-        function displayDate() {
-          document.getElementById("demo").innerHTML = Date("Your order has been recieved");
-        }
-        </script> 
+      <!-- <script> -->
+        <!-- document.getElementById("myBtn").addEventListener("click", displayDate); -->
+        <!--  -->
+        <!-- function displayDate() { -->
+          <!-- document.getElementById("demo").innerHTML = Date("Your order has been recieved"); -->
+        <!-- } -->
+        <!-- </script>  -->
     </li>
   </ul>
   <button type="submit" (click)="purchaseCart()">Checkout Cart</button>

@@ -24,3 +24,19 @@ describe('CartComponent', () => {
     expect(component).toBeTruthy();
   });
 })
+/* postStorefrontItemUrl:string = "http://3.131.26.213:8080/spacegeecks/store";
+  postStorefrontItem(newStorefront:StorefrontModel):Observable<StorefrontModel>{
+
+    return this.http.post<StorefrontModel>(this.postStorefrontItemUrl, newStorefront).pipe(map((data : StorefrontModel) => {
+      return data;
+  }), catchError(this.handleError<StorefrontModel>('postStorefrontItem', ))
+  )
+}
+
+private handleError<T>(operation = 'operation', result?: T) {
+  return (error: HttpErrorResponse): Observable<T> => {
+    return of(result as T);
+  };
+}
+
+} */
