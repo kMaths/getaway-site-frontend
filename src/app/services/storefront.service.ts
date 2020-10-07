@@ -38,7 +38,7 @@ export class StorefrontService {
     return this.http.jsonp(this.baseImageUrl + storefront.listing_id + "/images.js?callback=callback&api_key=" + this.apiKey, this.callback).pipe(map(data => data['results']));
   }
 
-  postStorefrontItemUrl:string = "http://3.131.26.213:8080/spacegeecks/storefront";
+  postStorefrontItemUrl:string = "http://3.131.26.213:8080/spacegeecks/store";
   postStorefrontItem(newStorefront:StorefrontModel):Observable<StorefrontModel>{
     if (this.http.post<StorefrontModel>(this.postStorefrontItemUrl, newStorefront)){
       alert("The item has been added to your cart!")
@@ -48,30 +48,3 @@ export class StorefrontService {
     }
   }
 }
-
-
-
-
-  //method that posts 
-  // clickLogin(){
-    
-  //   this.loginService.postLogin(this.userLogin).subscribe( data =>
-  //     {
-  //       if( data){
-  //         if(data == this.userService.user){
-  //           this.loginMessage = "You are already signed in"
-  //         } else {
-  //           this.userService.user = data;
-  //           this.userService.logInStatus = true;
-  //           this.loginMessage = "You have successfully logged in!";
-  //         }
-  //       } else {
-  //         this.loginMessage = "Sorry, wrong username or password";
-  //       }
-
-  //     }
-  //   )
-  // }
- // return this.http.get<Storefront[]>(this.storefrontUrl)
-    // options in header how to add headers to request
-    
