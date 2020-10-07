@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   newUser = new RegisterModel();
   userLogin = new LoginModel();
   loginMessage : string;
+  registerMessage : string;
 
 
   ngOnInit(): void {
@@ -25,12 +26,22 @@ export class LoginComponent implements OnInit {
   //method that sets all the form data to the newUser
   clickSubmit(){
     this.loginService.postRegister(this.newUser).subscribe( data =>
-      {
-      this.newUser.email = data.email;
-      this.newUser.firstname = data.firstname;
-      this.newUser.lastname = data.lastname;
-      this.newUser.password = data.password;
-      this.newUser.username = data.username;
+      { 
+        if(data){
+          this.userService.user = data;
+          this.userService.logInStatus = true;
+          this.registerMessage = "Thank you for registering " + this.userService.user.username 
+              + ". You are now logged in and free to explore Mars!";
+
+
+        } else {
+          this.registerMessage = "Please fill in all fields and provide a unique username and email";
+        }
+      // this.newUser.email = data.email;
+      // this.newUser.firstname = data.firstname;
+      // this.newUser.lastname = data.lastname;
+      // this.newUser.password = data.password;
+      // this.newUser.username = data.username;
     } 
     )
   }
@@ -40,7 +51,7 @@ export class LoginComponent implements OnInit {
     
     this.loginService.postLogin(this.userLogin).subscribe( data =>
       {
-        if( data){
+        if(data){
           if(data == this.userService.user){
             this.loginMessage = "You are already signed in"
           } else {
@@ -59,5 +70,6 @@ export class LoginComponent implements OnInit {
   clickLogout(){
     this.loginService.logInStatus = false;
     this.userService.user = null;
+    this.loginService.postLogout();
   }
 }
