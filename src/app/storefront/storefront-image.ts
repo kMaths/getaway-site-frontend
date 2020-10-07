@@ -1,5 +1,5 @@
 export interface StorefrontImage {
-  url_fullxfull : string;
+  url_170x135:string;
   listing_id:number;
   firstImage:string;
 }
