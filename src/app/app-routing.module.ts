@@ -5,12 +5,14 @@ import { LoginComponent } from './login/login.component';
 import { StorefrontComponent } from './storefront/storefront.component';
 import { AuthGuardService } from './Services/auth-guard.service';
 import { TravelComponent } from './travel/travel.component';
+import { ArtworkComponent } from './artwork/artwork.component';
 
 const routes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'home', component: HomeComponent},
     {path: 'login', component: LoginComponent},
     {path: 'browse', component: StorefrontComponent},
+    {path: 'art', component: ArtworkComponent},
     {path: 'travel/:roverName', component: TravelComponent, canActivate: [AuthGuardService]},
     // {path: 'cart', component: CartComponent},
 ];

@@ -11,6 +11,7 @@ import { TravelModule } from './travel/travel.module';
 // import { CartComponent } from './cart/cart.component';
 import { StorefrontComponent } from './storefront/storefront.component';
 import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
+import { ArtworkComponent } from './artwork/artwork.component';
 
 
 
@@ -22,7 +23,8 @@ import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
     LoginComponent,
     NavbarComponent,
     // CartComponent,
-    StorefrontComponent
+    StorefrontComponent,
+    ArtworkComponent
   ],
   imports: [
     BrowserModule,

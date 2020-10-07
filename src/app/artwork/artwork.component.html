@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-8" class="sm-banner">
+        Fans of Mars!
+      </div>
+    </div>
+</div>
+  
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="card col-md-4 mx-auto my-5" *ngFor="let art of gallery">
+            <img class="card-img-top" [src]="art.photo">
+            <div class="card-body">
+            <p class="card-text">{{art.credit}}</p>
+            </div>
+        </div>
+    </div>
+</div>
