@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
         if(data){
           this.registerMessage = "Thank you for registering " + this.authenticationService.currentUserValue.username 
               + ". You are now logged in and free to explore Mars!";
+              this.router.navigateByUrl('/home');
         } else {
           this.registerMessage = "Please fill in all fields and provide a unique username and email";
         }
@@ -49,6 +50,7 @@ export class LoginComponent implements OnInit {
       {
         if(data){
             this.loginMessage = "You have successfully logged in!";
+            this.router.navigateByUrl('/home');
         } else {
             this.loginMessage = "Sorry, wrong username or password";
         }
