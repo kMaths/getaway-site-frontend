@@ -30,7 +30,12 @@ export class CartComponent implements OnInit {
    }
 
   purchaseCart(): void {
-    this.cartService.purchaseCart(this.authenticationService.currentUserValue.userId);
+    this.cartService.purchaseCart(this.authenticationService.currentUserValue.userId)
+    .subscribe(data =>{
+      console.log(data);
+      this.allCartItems = data;
+    });
+   
     this.allCartItems = null;
   }
 

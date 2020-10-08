@@ -21,7 +21,10 @@
     
        
      
- <div class="card-footer">
+<div class="card-footer" *ngIf='allCartItems.length'>
   <button type="submit" (click)="purchaseCart()">Checkout Cart</button>
 </div>
 
+<div class="card-footer" *ngIf="!allCartItems.length">
+  <strong>Your cart is empty.</strong>
+</div>

@@ -1,6 +1,7 @@
 #welcomeMessage{
     padding-bottom: 1em;
     font-size: x-large;
+    line-height: 1.1;
 }
 #homepage_pic_text{
     font-size: larger;
