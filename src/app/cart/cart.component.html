@@ -1,9 +1,7 @@
 
- <div class="grid-container-storefront-items">
-  <ul *ngFor="let cartItem of allCartItems">
-    <li>
-      <article>
-        <div class="row">
+ <div class="grid-container-storefront-items row">
+  <div class ="card" *ngFor="let cartItem of allCartItems">
+        <div>
           <div class="col-md-2">
             <img [src]="cartItem.image">
           </div>
@@ -13,19 +11,12 @@
         </div>
           <br>
           <br>
-            <div class="row">
-              <div class="col-md-2 cartItem-price">
+            <div >
+              <div class="col-md-8 cartItem-price">
                 <strong>Price: ${{cartItem.price}}</strong>
               </div>
             </div> 
-            
-          <br>
-        <br>
-        <hr>
-        <br>
-      </article>
-    </li>
-  </ul>
+    </div>
 </div>
     
        
