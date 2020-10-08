@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { StorefrontModel } from '../storefront/storefront';
+import { Storefront, StorefrontModel} from '../storefront/storefront';
 import { CartService } from './cart.service';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-cart',
@@ -9,19 +10,27 @@ import { CartService } from './cart.service';
 })
 export class CartComponent implements OnInit {
 
-  allCartItems: StorefrontModel[];
-
-  constructor(private cartService : CartService) { }
+  allCartItems: Storefront[];
+  
+  
+  constructor(private cartService : CartService, private authenticationService: AuthenticationService ) { }
 
   //get items selected from backend 
   
   ngOnInit() {
-    this.cartService.getAllCartItems()
-      .subscribe(data => this.allCartItems = data);
+    
+    console.log(this.authenticationService.currentUserValue.userId);
+    
+  
+    this.cartService.putAllCartItems(this.authenticationService.currentUserValue.userId)
+    .subscribe(data =>{
+      console.log(data);
+      this.allCartItems = data;
+    });
    }
 
   purchaseCart(): void {
-    this.cartService.purchaseCart();
+    this.cartService.purchaseCart(this.authenticationService.currentUserValue.userId);
     this.allCartItems = null;
   }
 

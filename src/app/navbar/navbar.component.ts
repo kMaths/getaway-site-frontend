@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../login/login.service';
-import { UserService } from '../Services/user.service';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,19 +8,20 @@ import { UserService } from '../Services/user.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private userService:UserService, private loginService:LoginService) { }
+  constructor(private authenticationService: AuthenticationService) { }
 
   //Check to see if the user is logged in
   isLoggedIn():boolean{
-    return this.userService.logInStatus
+    if (this.authenticationService.currentUserValue) {
+      return true
+    }
+    return false
   }
 
-  //When you Click the signout button this will call the postLogout method anc clear the user 
+  //When you Click the signout button this will call the postLogout method and clear the user 
    clickLogout(){
-    this.loginService.postLogout();
+    this.authenticationService.postLogout();
     window.alert("You have logged out")
-    this.userService.logInStatus = false;
-    this.userService.user = null;
   }
 
   ngOnInit(): void {

@@ -2,10 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientJsonpModule, HttpErrorResponse, HttpHeaders, HttpRequest, JsonpClientBackend } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { Storefront } from '../storefront/storefront';
+import { Storefront, StorefrontModel } from '../storefront/storefront';
 import { StorefrontImage } from '../storefront/storefront-image';
 import { of } from 'rxjs/internal/observable/of';
-
+import { AuthenticationService } from '../services/authentication.service';
+import { environment } from '../../environments/environment';
+import { utf8Encode } from '@angular/compiler/src/util';
 
 @Injectable({
   providedIn: 'root'
@@ -25,9 +27,7 @@ export class StorefrontService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', }),
   };
 
-  constructor(private http: HttpClient, private jsonp: HttpClientJsonpModule) {
-
-  }
+  constructor(private http: HttpClient, public authenticationService: AuthenticationService) { }
 
   getAllMarsProducts(callback = 'callback'): Observable<Storefront[]> {
     console.log(this.http.jsonp(this.storefrontUrl, callback).pipe(map(result => result['results'])))
@@ -40,18 +40,18 @@ export class StorefrontService {
   }
 
 
-  postStorefrontItemUrl: string = "http://3.131.26.213:8080/spacegeecks/store";
-  postStorefrontItem(newStorefront: Storefront): Observable<Storefront> {
-
-    return this.http.post<Storefront>(this.postStorefrontItemUrl, newStorefront).pipe(map((data: Storefront) => {
+  postStorefrontItem(newStorefrontItem: StorefrontModel): Observable<StorefrontModel> {
+    const currentUser = this.authenticationService.currentUserValue;
+    newStorefrontItem.userId = currentUser.userId;
+    return this.http.post<StorefrontModel>(`${environment.apiUrl}/store`, newStorefrontItem).pipe(map((data: StorefrontModel) => {
       return data;
-    }), catchError(this.handleError<Storefront>('getAllCartItems',))
+    }), catchError(this.handleError<StorefrontModel>('getAllCartItems',))
     )
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: HttpErrorResponse): Observable<T> => {
-      window.alert("My fault fam we are having some trouble ")
+      window.alert("The site is down for maintence.")
       return of(result as T);
     };
   }

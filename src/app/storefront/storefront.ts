@@ -13,4 +13,5 @@ export class StorefrontModel {
   title:string;
   price:string;
   currency_code:string;
+  userId: number;
 }
