@@ -1,26 +1,35 @@
 
-<div class="card" style="width: 18rem;">
-  <div class="card-header">
-    Your shopping Cart
-  </div>
-  <div class="card-body">
-    <div *ngFor="let cartItem of allCartItems">
-      {{cartItem.title}}
-      {{storefront.price}}
-
-      <br>
-
-  </div>
-
+ <div class="grid-container-storefront-items">
+  <ul *ngFor="let cartItem of allCartItems">
+    <li>
+      <article>
+        <div class="row">
+          <div class="col-md-2">
+            <img [src]="cartItem.image">
+          </div>
+          <div class="col-md-8 cartItem-title">
+            <strong>{{cartItem.title}}</strong>
+          </div>
+        </div>
+          <br>
+          <br>
+            <div class="row">
+              <div class="col-md-2 cartItem-price">
+                <strong>Price: ${{cartItem.price}}</strong>
+              </div>
+            </div> 
+            
+          <br>
+        <br>
+        <hr>
+        <br>
+      </article>
+    </li>
+  </ul>
+</div>
     
        
-      <!-- <script> -->
-        <!-- document.getElementById("myBtn").addEventListener("click", displayDate); -->
-        <!--  -->
-        <!-- function displayDate() { -->
-          <!-- document.getElementById("demo").innerHTML = Date("Your order has been recieved"); -->
-        <!-- } -->
-        <!-- </script>  -->
+     
  <div class="card-footer">
   <button type="submit" (click)="purchaseCart()">Checkout Cart</button>
 </div>

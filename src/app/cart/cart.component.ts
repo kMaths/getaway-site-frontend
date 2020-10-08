@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StorefrontModel} from '../storefront/storefront';
+import { Storefront, StorefrontModel} from '../storefront/storefront';
 import { CartService } from './cart.service';
 import { AuthenticationService } from '../services/authentication.service';
 
@@ -10,7 +10,7 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class CartComponent implements OnInit {
 
-  allCartItems: StorefrontModel[];
+  allCartItems: Storefront[];
   
   
   constructor(private cartService : CartService, private authenticationService: AuthenticationService ) { }
@@ -23,14 +23,14 @@ export class CartComponent implements OnInit {
     
   
     this.cartService.putAllCartItems(this.authenticationService.currentUserValue.userId)
-    .subscribe(data =>
-      console.log(data),
-      //this.allCartItems = data
-        );
+    .subscribe(data =>{
+      console.log(data);
+      this.allCartItems = data;
+    });
    }
 
   purchaseCart(): void {
-    this.cartService.purchaseCart();
+    this.cartService.purchaseCart(this.authenticationService.currentUserValue.userId);
     this.allCartItems = null;
   }
 
