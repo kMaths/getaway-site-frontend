@@ -8,7 +8,7 @@ export interface Storefront{
   image: string;
 }
 
-export class StorefrontModel {
+export interface StorefrontModel {
   listing_id:string;
   title:string;
   price:string;

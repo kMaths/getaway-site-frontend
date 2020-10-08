@@ -11,6 +11,7 @@ import { AuthenticationService } from '../services/authentication.service';
 export class CartComponent implements OnInit {
 
   allCartItems: Storefront[];
+  checkout: string; 
   
   
   constructor(private cartService : CartService, private authenticationService: AuthenticationService ) { }
@@ -26,6 +27,7 @@ export class CartComponent implements OnInit {
     .subscribe(data =>{
       console.log(data);
       this.allCartItems = data;
+      this.checkout = "You've purchased your cart";
     });
    }
 

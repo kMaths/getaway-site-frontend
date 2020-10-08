@@ -18,6 +18,9 @@ export class StorefrontService {
 
   callback = 'callback';
 
+  message = 'Your item has been added to the cart';
+  
+
   //This really should be kept in an environmental variable/otherwise put in .gitignore because it's private info
   private apiKey: string = "m8ud7nm45drvcvdc7geg3tod";
 
@@ -39,12 +42,12 @@ export class StorefrontService {
     return this.http.jsonp(this.baseImageUrl + storefront.listing_id + "/images.js?callback=callback&api_key=" + this.apiKey, this.callback).pipe(map(data => data['results']));
   }
 
-
   postStorefrontItem(newStorefrontItem: StorefrontModel): Observable<StorefrontModel> {
     const currentUser = this.authenticationService.currentUserValue;
     newStorefrontItem.userId = currentUser.userId;
     return this.http.post<StorefrontModel>(`${environment.apiUrl}/store`, newStorefrontItem).pipe(map((data: StorefrontModel) => {
       return data;
+      
     }), catchError(this.handleError<StorefrontModel>('getAllCartItems',))
     )
   }

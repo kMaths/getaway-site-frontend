@@ -14,14 +14,7 @@ export class CartService {
 
   constructor(private http: HttpClient, public authenticationService: AuthenticationService) { }
 
- 
 
-//   purchaseCart(): Observable<StorefrontModel[]> {
-//     return this.http.post<StorefrontModel[]>(`${environment.apiUrl}/cart`, null).pipe(map((data : StorefrontModel[]) => {
-//       return data;
-//   }), catchError(this.handleError<StorefrontModel[]>('getAllCartItems', ))
-//   )
-//   }
   purchaseCart(user:any):Observable<Storefront[]>{
     const currentUser = this.authenticationService.currentUserValue;
       user = currentUser
