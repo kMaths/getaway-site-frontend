@@ -12,6 +12,10 @@ import { StorefrontComponent } from './storefront/storefront.component';
 import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { CartComponent } from './cart/cart.component';
+import { ArtworkComponent } from './artwork/artwork.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -21,6 +25,8 @@ import { CartComponent } from './cart/cart.component';
     NavbarComponent,
     StorefrontComponent,
     CartComponent,
+    StorefrontComponent,
+    ArtworkComponent
   ],
   imports: [
     BrowserModule,
