@@ -10,7 +10,6 @@ import { LoginModel, RegisterModel } from './login';
 })
 export class LoginComponent implements OnInit {
 
-  
   constructor(
     private authenticationService: AuthenticationService,
     private router: Router,
@@ -18,7 +17,7 @@ export class LoginComponent implements OnInit {
       if (this.authenticationService.currentUserValue) {
         this.router.navigate(['/']);
       }
-     }
+    }
   
   newUser = new RegisterModel();
   userLogin = new LoginModel();
@@ -35,7 +34,6 @@ export class LoginComponent implements OnInit {
     this.authenticationService.postRegister(this.newUser).subscribe( data =>
       { 
         if(data){
-          this.newUser = data;
           this.registerMessage = "Thank you for registering " + this.authenticationService.currentUserValue.username 
               + ". You are now logged in and free to explore Mars!";
         } else {
@@ -50,7 +48,6 @@ export class LoginComponent implements OnInit {
     this.authenticationService.postLogin(this.userLogin).subscribe( data =>
       {
         if(data){
-            this.userLogin = data;
             this.loginMessage = "You have successfully logged in!";
         } else {
             this.loginMessage = "Sorry, wrong username or password";

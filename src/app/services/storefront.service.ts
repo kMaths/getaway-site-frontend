@@ -7,13 +7,12 @@ import { StorefrontImage } from '../storefront/storefront-image';
 import { of } from 'rxjs/internal/observable/of';
 import { AuthenticationService } from '../services/authentication.service';
 import { environment } from '../../environments/environment';
+import { utf8Encode } from '@angular/compiler/src/util';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StorefrontService {
-
-  private authenticationService: AuthenticationService;
 
   private storefrontUrl: string = "https://openapi.etsy.com/v2/listings/active.js?callback=callback&keywords=mars%20space&limit=8&api_key=m8ud7nm45drvcvdc7geg3tod";
 
@@ -28,9 +27,7 @@ export class StorefrontService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', }),
   };
 
-  constructor(private http: HttpClient, private jsonp: HttpClientJsonpModule) {
-
-  }
+  constructor(private http: HttpClient, public authenticationService: AuthenticationService) { }
 
   getAllMarsProducts(callback = 'callback'): Observable<Storefront[]> {
     console.log(this.http.jsonp(this.storefrontUrl, callback).pipe(map(result => result['results'])))
@@ -44,7 +41,8 @@ export class StorefrontService {
 
 
   postStorefrontItem(newStorefrontItem: StorefrontModel): Observable<StorefrontModel> {
-    newStorefrontItem.userId = this.authenticationService.currentUserValue.userId;
+    const currentUser = this.authenticationService.currentUserValue;
+    newStorefrontItem.userId = currentUser.userId;
     return this.http.post<StorefrontModel>(`${environment.apiUrl}/store`, newStorefrontItem).pipe(map((data: StorefrontModel) => {
       return data;
     }), catchError(this.handleError<StorefrontModel>('getAllCartItems',))

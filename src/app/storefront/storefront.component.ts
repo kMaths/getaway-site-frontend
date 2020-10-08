@@ -16,8 +16,8 @@ export class StorefrontComponent implements OnInit {
   temp: Storefront;
   newItem: StorefrontModel;
   itemMessage: string;
-
-  constructor(private storefrontService: StorefrontService) { }
+  
+  constructor(private storefrontService: StorefrontService, private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
     this.storefrontService.getAllMarsProducts().subscribe(data => {
@@ -35,13 +35,16 @@ export class StorefrontComponent implements OnInit {
 
   //as user selects an item, tell backend an item was added .... post to backend      
   submitStorefrontItem(newStorefront: StorefrontModel) {
+    newStorefront.userId = this.authenticationService.currentUserValue.userId;
     console.log(newStorefront);
     this.storefrontService.postStorefrontItem(newStorefront).subscribe(data => {
       if (data) {
         this.newItem;
         this.itemMessage = 'Item added.'
+        console.log('We sold things.')
       } else {
         this.itemMessage = 'Item not added.'
+        console.log('Some kind of buying error.')
       }
     });
   }

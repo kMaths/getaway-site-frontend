@@ -4,6 +4,8 @@ import { StorefrontModel } from '../storefront/storefront';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
 import { of } from 'rxjs/internal/observable/of';
+import { environment } from '../../environments/environment';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +17,7 @@ export class CartService {
  
 
   purchaseCart(): Observable<StorefrontModel[]> {
-    return this.http.post<StorefrontModel[]>(this.postcartURl, null).pipe(map((data : StorefrontModel[]) => {
+    return this.http.post<StorefrontModel[]>(`${environment.apiUrl}/cart`, null).pipe(map((data : StorefrontModel[]) => {
       return data;
   }), catchError(this.handleError<StorefrontModel[]>('getAllCartItems', ))
   )
@@ -23,10 +25,8 @@ export class CartService {
   }
   
 
-postcartURl:string = "http://3.131.26.213:8080/spacegeecks/cart";
  getAllCartItems():Observable<StorefrontModel[]>{
-
-    return this.http.get<StorefrontModel[]>(this.postcartURl).pipe(map((data : StorefrontModel[]) => {
+    return this.http.get<StorefrontModel[]>(`${environment.apiUrl}/cart`).pipe(map((data : StorefrontModel[]) => {
       return data;
   }), catchError(this.handleError<StorefrontModel[]>('getAllCartItems', ))
   )

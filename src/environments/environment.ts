@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://3.131.26.213:8080/spacegeecks/'
+  apiUrl: 'http://3.131.26.213:8080/spacegeecks'
 };
 
 /*

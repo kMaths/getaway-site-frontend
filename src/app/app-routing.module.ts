@@ -8,12 +8,12 @@ import { TravelComponent } from './travel/travel.component';
 import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
-    {path: '', component: HomeComponent, canActivate: [AuthGuardService] },
+    {path: '', component: HomeComponent },
     {path: 'home', redirectTo: ''},
     {path: 'login', component: LoginComponent},
-    {path: 'store', component: StorefrontComponent},
-    {path: 'travel/:roverName', component: TravelComponent},
-    {path: 'cart', component: CartComponent},
+    {path: 'store', component: StorefrontComponent, canActivate: [AuthGuardService]},
+    {path: 'travel/:roverName', component: TravelComponent, canActivate: [AuthGuardService]},
+    {path: 'cart', component: CartComponent, canActivate: [AuthGuardService]},
     {path: '**', redirectTo: ''}
 ];
 
