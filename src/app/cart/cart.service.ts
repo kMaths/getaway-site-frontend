@@ -25,9 +25,9 @@ export class CartService {
   }
   
 
- putAllCartItems(user:StorefrontModel):Observable<StorefrontModel[]>{
+ putAllCartItems(user:any):Observable<StorefrontModel[]>{
   const currentUser = this.authenticationService.currentUserValue;
-    user.userId = currentUser.userId;
+    user = currentUser
     return this.http.put<StorefrontModel[]>(`${environment.apiUrl}/cart`, user).pipe(map((data : StorefrontModel[]) => {
       return data;
   }), catchError(this.handleError<StorefrontModel[]>('getAllCartItems', ))

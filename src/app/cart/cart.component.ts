@@ -11,9 +11,8 @@ import { AuthenticationService } from '../services/authentication.service';
 export class CartComponent implements OnInit {
 
   allCartItems: StorefrontModel[];
-  user: StorefrontModel;
-
-
+  
+  
   constructor(private cartService : CartService, private authenticationService: AuthenticationService ) { }
 
   //get items selected from backend 
@@ -21,11 +20,12 @@ export class CartComponent implements OnInit {
   ngOnInit() {
     
     console.log(this.authenticationService.currentUserValue.userId);
-    this.user.userId = this.authenticationService.currentUserValue.userId,
-    this.cartService.putAllCartItems(this.user)
+    
+  
+    this.cartService.putAllCartItems(this.authenticationService.currentUserValue.userId)
     .subscribe(data =>
-      
-      this.allCartItems = data
+      console.log(data),
+      //this.allCartItems = data
         );
    }
 
