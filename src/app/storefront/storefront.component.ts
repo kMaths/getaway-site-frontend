@@ -15,7 +15,6 @@ export class StorefrontComponent implements OnInit {
   productImages: StorefrontImage[];
   temp: Storefront;
   newItem: StorefrontModel;
-  itemMessage: string;
   
   constructor(private storefrontService: StorefrontService, private authenticationService: AuthenticationService) { }
 
@@ -40,11 +39,10 @@ export class StorefrontComponent implements OnInit {
     this.storefrontService.postStorefrontItem(newStorefront).subscribe(data => {
       if (data) {
         this.newItem;
-        this.itemMessage = 'Item added.'
+        window.alert("The item has been added to your cart.")
         console.log('We sold things.')
         console.log(newStorefront.userId = this.authenticationService.currentUserValue.userId);
       } else {
-        this.itemMessage = 'Item not added.'
         console.log('Some kind of buying error.')
       }
     });

@@ -23,7 +23,6 @@ export class CartService {
     }), catchError(this.handleError<Storefront[]>('getAllCartItems', ))
     )
   }
-  
 
  putAllCartItems(user:any):Observable<Storefront[]>{
   const currentUser = this.authenticationService.currentUserValue;
