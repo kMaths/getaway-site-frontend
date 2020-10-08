@@ -42,6 +42,7 @@ export class StorefrontComponent implements OnInit {
         this.newItem;
         this.itemMessage = 'Item added.'
         console.log('We sold things.')
+        console.log(newStorefront.userId = this.authenticationService.currentUserValue.userId);
       } else {
         this.itemMessage = 'Item not added.'
         console.log('Some kind of buying error.')

@@ -12,7 +12,7 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class CartService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public authenticationService: AuthenticationService) { }
 
  
 
@@ -25,8 +25,10 @@ export class CartService {
   }
   
 
- getAllCartItems():Observable<StorefrontModel[]>{
-    return this.http.get<StorefrontModel[]>(`${environment.apiUrl}/cart`).pipe(map((data : StorefrontModel[]) => {
+ putAllCartItems(user:StorefrontModel):Observable<StorefrontModel[]>{
+  const currentUser = this.authenticationService.currentUserValue;
+    user.userId = currentUser.userId;
+    return this.http.put<StorefrontModel[]>(`${environment.apiUrl}/cart`, user).pipe(map((data : StorefrontModel[]) => {
       return data;
   }), catchError(this.handleError<StorefrontModel[]>('getAllCartItems', ))
   )
