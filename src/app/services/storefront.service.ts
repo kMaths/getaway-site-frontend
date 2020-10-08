@@ -2,15 +2,18 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientJsonpModule, HttpErrorResponse, HttpHeaders, HttpRequest, JsonpClientBackend } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { Storefront } from '../storefront/storefront';
+import { Storefront, StorefrontModel } from '../storefront/storefront';
 import { StorefrontImage } from '../storefront/storefront-image';
 import { of } from 'rxjs/internal/observable/of';
-
+import { AuthenticationService } from '../services/authentication.service';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StorefrontService {
+
+  private authenticationService: AuthenticationService;
 
   private storefrontUrl: string = "https://openapi.etsy.com/v2/listings/active.js?callback=callback&keywords=mars%20space&limit=8&api_key=m8ud7nm45drvcvdc7geg3tod";
 
@@ -40,18 +43,17 @@ export class StorefrontService {
   }
 
 
-  postStorefrontItemUrl: string = "http://3.131.26.213:8080/spacegeecks/store";
-  postStorefrontItem(newStorefront: Storefront): Observable<Storefront> {
-
-    return this.http.post<Storefront>(this.postStorefrontItemUrl, newStorefront).pipe(map((data: Storefront) => {
+  postStorefrontItem(newStorefrontItem: StorefrontModel): Observable<StorefrontModel> {
+    newStorefrontItem.userId = this.authenticationService.currentUserValue.userId;
+    return this.http.post<StorefrontModel>(`${environment.apiUrl}/store`, newStorefrontItem).pipe(map((data: StorefrontModel) => {
       return data;
-    }), catchError(this.handleError<Storefront>('getAllCartItems',))
+    }), catchError(this.handleError<StorefrontModel>('getAllCartItems',))
     )
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: HttpErrorResponse): Observable<T> => {
-      window.alert("There site is down for maintence.")
+      window.alert("The site is down for maintence.")
       return of(result as T);
     };
   }
