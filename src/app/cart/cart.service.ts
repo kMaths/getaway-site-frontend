@@ -34,7 +34,7 @@ postcartURl:string = "http://3.131.26.213:8080/spacegeecks/cart";
 
 private handleError<T>(operation = 'operation', result?: T) {
   return (error: HttpErrorResponse): Observable<T> => {
-  window.alert("My fault fam we are having some trouble")
+  window.alert("Error please come back to the site momentarily")
     return of(result as T);
   };
 }

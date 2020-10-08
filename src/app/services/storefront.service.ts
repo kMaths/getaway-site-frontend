@@ -51,7 +51,7 @@ export class StorefrontService {
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: HttpErrorResponse): Observable<T> => {
-      window.alert("My fault fam we are having some trouble ")
+      window.alert("There site is down for maintence.")
       return of(result as T);
     };
   }
