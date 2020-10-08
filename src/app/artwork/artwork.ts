@@ -1,4 +1,4 @@
-import { User } from '../Services/user';
+import { User } from '../services/user';
 
 export interface Artwork {
     id: number;

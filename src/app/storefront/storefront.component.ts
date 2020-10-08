@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Storefront, StorefrontModel } from './storefront';
 import { StorefrontImage } from './storefront-image';
 import { StorefrontService } from '../services/storefront.service';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-storefront',
@@ -12,9 +13,11 @@ export class StorefrontComponent implements OnInit {
 
   marsProducts: Storefront[];
   productImages: StorefrontImage[];
-  temp : Storefront;
-
-  constructor(private storefrontService: StorefrontService) { }
+  temp: Storefront;
+  newItem: StorefrontModel;
+  itemMessage: string;
+  
+  constructor(private storefrontService: StorefrontService, private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
     this.storefrontService.getAllMarsProducts().subscribe(data => {
@@ -31,10 +34,18 @@ export class StorefrontComponent implements OnInit {
   }
 
   //as user selects an item, tell backend an item was added .... post to backend      
-  submitStorefrontItem(newStorefront: Storefront) {
+  submitStorefrontItem(newStorefront: StorefrontModel) {
+    newStorefront.userId = this.authenticationService.currentUserValue.userId;
     console.log(newStorefront);
     this.storefrontService.postStorefrontItem(newStorefront).subscribe(data => {
-      
+      if (data) {
+        this.newItem;
+        this.itemMessage = 'Item added.'
+        console.log('We sold things.')
+      } else {
+        this.itemMessage = 'Item not added.'
+        console.log('Some kind of buying error.')
+      }
     });
   }
 
