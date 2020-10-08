@@ -18,6 +18,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { TravelModule } from './travel/travel.module';
 import { StorefrontComponent } from './storefront/storefront.component';
 import { CartComponent } from './cart/cart.component';
+import { ArtworkComponent } from './artwork/artwork.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -27,6 +31,8 @@ import { CartComponent } from './cart/cart.component';
     NavbarComponent,
     StorefrontComponent,
     CartComponent,
+    StorefrontComponent,
+    ArtworkComponent
   ],
   imports: [
     BrowserModule,

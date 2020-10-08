@@ -5,7 +5,9 @@ import { LoginComponent } from './login/login.component';
 import { StorefrontComponent } from './storefront/storefront.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { TravelComponent } from './travel/travel.component';
+import { ArtworkComponent } from './artwork/artwork.component';
 import { CartComponent } from './cart/cart.component';
+
 
 const routes: Routes = [
     {path: '', component: HomeComponent },
