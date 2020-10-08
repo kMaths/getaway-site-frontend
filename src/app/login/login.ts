@@ -1,8 +1,9 @@
+/* these are models that are used to hold data */ 
 export class RegisterModel{
     username:string;
     password:string;
-    firstname:string;
-    lastname:string;
+    firstName:string;
+    lastName:string;
     email:string;
 }
 

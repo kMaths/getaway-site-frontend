@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginService} from './login.service'
-import { LoginModel,  RegisterModel } from './login';
-import { UserService } from '../user.service';
-import { User } from '../user';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service';
+import { LoginModel, RegisterModel } from './login';
 
 @Component({
   selector: 'app-login',
@@ -11,47 +10,55 @@ import { User } from '../user';
 })
 export class LoginComponent implements OnInit {
 
-  
-  constructor(private loginService: LoginService, private userService: UserService) { }
+  constructor(
+    private authenticationService: AuthenticationService,
+    private router: Router,
+    ) {
+      if (this.authenticationService.currentUserValue) {
+        this.router.navigate(['/']);
+      }
+    }
   
   newUser = new RegisterModel();
   userLogin = new LoginModel();
   loginMessage : string;
+  registerMessage : string;
 
 
   ngOnInit(): void {
     
   }
 
+  //method that sets all the form data to the newUser
   clickSubmit(){
-    this.loginService.postRegister(this.newUser).subscribe( data =>
-      {
-      this.newUser.email = data.email;
-      this.newUser.firstname = data.firstname;
-      this.newUser.lastname = data.lastname;
-      this.newUser.password = data.password;
-      this.newUser.username = data.username;
-    } 
+    this.authenticationService.postRegister(this.newUser).subscribe( data =>
+      { 
+        if(data){
+          this.registerMessage = "Thank you for registering " + this.authenticationService.currentUserValue.username 
+              + ". You are now logged in and free to explore Mars!";
+              this.router.navigateByUrl('/home');
+        } else {
+          this.registerMessage = "Please fill in all fields and provide a unique username and email";
+        }
+      } 
     )
   }
 
+  //method that sets that checks the userlogin information with the backend
   clickLogin(){
-    
-    this.loginService.postLogin(this.userLogin).subscribe( data =>
+    this.authenticationService.postLogin(this.userLogin).subscribe( data =>
       {
-        if( data){
-          if(data == this.userService.user){
-            this.loginMessage = "You are already signed in"
-          } else {
-            this.userService.user = data;
-            this.userService.logInStatus = true;
+        if(data){
             this.loginMessage = "You have successfully logged in!";
-          }
+            this.router.navigateByUrl('/home');
         } else {
-          this.loginMessage = "Sorry, wrong username or password";
+            this.loginMessage = "Sorry, wrong username or password";
         }
-
       }
     )
+  }
+
+  clickLogout(){
+    this.authenticationService.postLogout();
   }
 }

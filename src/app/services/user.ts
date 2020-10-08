@@ -8,6 +8,7 @@ export interface User {
     lastName : string; 
     email : string;
     role : Role;
+    token?: string;
   
 }
 
@@ -15,5 +16,6 @@ export interface Item {
 
 }
 export interface Role {
-
+    id : number;
+    name : string;
 }

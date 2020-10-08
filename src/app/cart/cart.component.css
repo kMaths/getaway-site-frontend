@@ -1,0 +1,9 @@
+.border {
+  border: 5px;
+}
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 25%
+}

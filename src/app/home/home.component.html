@@ -1,17 +1,19 @@
 <div class = "row">
         <div class = "col-md-12" id="welcomeMessage">
                 Welcome to the mars getaway homepage! From here you can travel to the surface of mars following behind our marvelous rovers. 
-                We have the Opportunity rover, Curiosity rover, and Spirit rover with many different cameras and angles to look through. 
+                We have the Opportunity rover, Curiosity rover, and Spirit rover with many different cameras and angles to look through.
+                One Sol represents one day on Mars, which is a little longer than one Earth Day. The Sol information you see in the information
+                section is how many Sols have passed since that rover landed on Mars. Each rover has different cameras that you can choose to
+                look through. Take a look around our travel page to find out more!
                 After you are done exploring mars take some time to browse our shop and look at the space-themed merchandise. 
             </div>
     <div class = "col-md-6" id="homepage_pic_text">
-            {{ImageOfTheDay.title}}<br/>
-            {{ImageOfTheDay.date}}<br/>
-            {{ImageOfTheDay.explanation}}<br/>
-            {{ImageOfTheDay.copyright}}
+        {{ImageOfTheDay.title}}<br/>
+        {{ImageOfTheDay.explanation}}<br/>
+        {{ImageOfTheDay.date}}<br/>
     </div>
-    <div class = "col-md-6" id = "homepage_picture" > 
-        <img src="{{ImageOfTheDay.url}}" width="100%" height="100%" *ngIf="ImageOfTheDay.media_type == 'image'">
-        <iframe *ngIf="ImageOfTheDay.media_type == 'video'" [src]="getTrustedUrl()" width="100%" height="100%" ></iframe>
+    <div class = "col-md-6" id = "homepage_picture"> 
+        <img src="{{ImageOfTheDay.url}}" width="100%" max-height="100%">
     </div>
+   
  </div>

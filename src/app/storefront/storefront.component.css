@@ -1,0 +1,71 @@
+h3 {
+  color: brown;
+  font-size: 2rem;
+  text-align: center;
+}
+
+p {
+  color: brown;
+  font-size: 1.3rem;
+  line-height: 130%;
+}
+
+.sm-banner {
+  color: brown;
+  font-size: 2rem;
+  font-weight: bolder;
+  padding: 6%;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+}
+
+.grid-container-storefront-items {
+  display: flex;
+  flex-flow: column;
+  border:  1px solid black;
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.top-row-div {
+  min-width: 45%;
+  max-width: 45%;
+  padding: 0;
+  margin: 0;
+}
+
+.tour-info-div {
+  min-width: 20%;
+  max-width: 20%;
+  padding: 0;
+  margin: 0;
+  float: right;
+}
+
+.parent-div {
+  width: 100%;
+}
+
+.product-title {
+  font-size: 1.5rem;
+  line-height: 110%;
+  padding-left: 6%;
+  padding-top: 3%;
+}
+
+.product-description {
+  font-size: 1rem;
+}
+
+.product-price {
+  color: brown;
+  font-size: 1rem;
+  padding-top: .5%;
+}
+
+.purchase-button {
+  align-self: right;
+}
