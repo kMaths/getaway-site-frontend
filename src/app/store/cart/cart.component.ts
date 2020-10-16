@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Storefront, StorefrontModel} from '../storefront/storefront';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { Storefront } from '../storefront/storefront';
 import { CartService } from './cart.service';
-import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-cart',

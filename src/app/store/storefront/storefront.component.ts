@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Storefront, StorefrontModel } from './storefront';
 import { StorefrontImage } from './storefront-image';
 import { StorefrontService } from '../services/storefront.service';
-import { AuthenticationService } from '../services/authentication.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-storefront',

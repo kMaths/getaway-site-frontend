@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientJsonpModule, HttpErrorResponse, HttpHeaders, HttpRequest, JsonpClientBackend } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { of } from 'rxjs/internal/observable/of';
+import { utf8Encode } from '@angular/compiler/src/util';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { environment } from 'src/environments/environment';
 import { Storefront, StorefrontModel } from '../storefront/storefront';
 import { StorefrontImage } from '../storefront/storefront-image';
-import { of } from 'rxjs/internal/observable/of';
-import { AuthenticationService } from '../services/authentication.service';
-import { environment } from '../../environments/environment';
-import { utf8Encode } from '@angular/compiler/src/util';
 
 @Injectable({
   providedIn: 'root'

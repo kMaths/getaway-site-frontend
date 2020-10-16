@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Storefront, StorefrontModel } from '../storefront/storefront';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
 import { of } from 'rxjs/internal/observable/of';
-import { environment } from '../../environments/environment';
-import { AuthenticationService } from '../services/authentication.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { environment } from 'src/environments/environment';
+import { Storefront } from '../storefront/storefront';
 
 @Injectable({
   providedIn: 'root'
