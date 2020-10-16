@@ -16,8 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TravelModule } from './travel/travel.module';
-import { StorefrontComponent } from './storefront/storefront.component';
-import { CartComponent } from './cart/cart.component';
+import { StoreModule } from './store/store.module';
 
 @NgModule({
   declarations: [
@@ -25,8 +24,6 @@ import { CartComponent } from './cart/cart.component';
     HomeComponent,
     LoginComponent,
     NavbarComponent,
-    StorefrontComponent,
-    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +34,7 @@ import { CartComponent } from './cart/cart.component';
     FormsModule,
     HttpClientJsonpModule,
     NoopAnimationsModule,
+    StoreModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

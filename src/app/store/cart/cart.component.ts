@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Storefront, StorefrontModel} from '../storefront/storefront';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { Product } from '../storefront/product';
 import { CartService } from './cart.service';
-import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +10,7 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class CartComponent implements OnInit {
 
-  allCartItems: Storefront[];
+  allCartItems: Product[];
   
   
   constructor(private cartService : CartService, private authenticationService: AuthenticationService ) { }

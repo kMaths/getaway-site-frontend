@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Storefront, StorefrontModel } from './storefront';
-import { StorefrontImage } from './storefront-image';
-import { StorefrontService } from '../services/storefront.service';
-import { AuthenticationService } from '../services/authentication.service';
+import { Product, ProductModel } from './product';
+import { ProductImage } from './product-image';
+import { StorefrontService } from '../services/product.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-storefront',
@@ -11,10 +11,10 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class StorefrontComponent implements OnInit {
 
-  marsProducts: Storefront[];
-  productImages: StorefrontImage[];
-  temp: Storefront;
-  newItem: StorefrontModel;
+  marsProducts: Product[];
+  productImages: ProductImage[];
+  temp: Product;
+  newItem: ProductModel;
   itemMessage: string;
   
   constructor(private storefrontService: StorefrontService, private authenticationService: AuthenticationService) { }
@@ -34,7 +34,7 @@ export class StorefrontComponent implements OnInit {
   }
 
   //as user selects an item, tell backend an item was added .... post to backend      
-  submitStorefrontItem(newStorefront: StorefrontModel) {
+  submitStorefrontItem(newStorefront: ProductModel) {
     newStorefront.userId = this.authenticationService.currentUserValue.userId;
     console.log(newStorefront);
     this.storefrontService.postStorefrontItem(newStorefront).subscribe(data => {
