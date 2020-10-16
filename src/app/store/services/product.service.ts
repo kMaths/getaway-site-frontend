@@ -3,11 +3,10 @@ import { HttpClient, HttpClientJsonpModule, HttpErrorResponse, HttpHeaders, Http
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { of } from 'rxjs/internal/observable/of';
-import { utf8Encode } from '@angular/compiler/src/util';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { environment } from 'src/environments/environment';
-import { Storefront, StorefrontModel } from '../storefront/storefront';
-import { StorefrontImage } from '../storefront/storefront-image';
+import { Product, ProductModel } from '../storefront/storefront';
+import { ProductImage } from '../storefront/product-image';
 
 @Injectable({
   providedIn: 'root'
@@ -29,23 +28,23 @@ export class StorefrontService {
 
   constructor(private http: HttpClient, public authenticationService: AuthenticationService) { }
 
-  getAllMarsProducts(callback = 'callback'): Observable<Storefront[]> {
+  getAllMarsProducts(callback = 'callback'): Observable<Product[]> {
     console.log(this.http.jsonp(this.storefrontUrl, callback).pipe(map(result => result['results'])))
     return this.http.jsonp(this.storefrontUrl, callback).pipe(map(result => result['results']));
   }
 
-  getMarsProductImage(storefront: Storefront): Observable<StorefrontImage[]> {
+  getMarsProductImage(storefront: Product): Observable<ProductImage[]> {
     console.log(this.http.jsonp(this.baseImageUrl + storefront.listing_id + "/images.js?callback=callback&api_key=" + this.apiKey, this.callback).pipe(map(data => data['results'])))
     return this.http.jsonp(this.baseImageUrl + storefront.listing_id + "/images.js?callback=callback&api_key=" + this.apiKey, this.callback).pipe(map(data => data['results']));
   }
 
 
-  postStorefrontItem(newStorefrontItem: StorefrontModel): Observable<StorefrontModel> {
+  postStorefrontItem(newStorefrontItem: ProductModel): Observable<ProductModel> {
     const currentUser = this.authenticationService.currentUserValue;
     newStorefrontItem.userId = currentUser.userId;
-    return this.http.post<StorefrontModel>(`${environment.apiUrl}/store`, newStorefrontItem).pipe(map((data: StorefrontModel) => {
+    return this.http.post<ProductModel>(`${environment.apiUrl}/store`, newStorefrontItem).pipe(map((data: ProductModel) => {
       return data;
-    }), catchError(this.handleError<StorefrontModel>('getAllCartItems',))
+    }), catchError(this.handleError<ProductModel>('getAllCartItems',))
     )
   }
 

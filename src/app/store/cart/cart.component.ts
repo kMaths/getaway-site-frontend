@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
-import { Storefront } from '../storefront/storefront';
+import { Product } from '../storefront/storefront';
 import { CartService } from './cart.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { CartService } from './cart.service';
 })
 export class CartComponent implements OnInit {
 
-  allCartItems: Storefront[];
+  allCartItems: Product[];
   
   
   constructor(private cartService : CartService, private authenticationService: AuthenticationService ) { }
