@@ -5,7 +5,7 @@ import { catchError, map } from 'rxjs/operators';
 import { of } from 'rxjs/internal/observable/of';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { environment } from 'src/environments/environment';
-import { Product, ProductModel } from '../storefront/storefront';
+import { Product, ProductModel } from '../storefront/product';
 import { ProductImage } from '../storefront/product-image';
 
 @Injectable({

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product, ProductModel } from './storefront';
+import { Product, ProductModel } from './product';
 import { ProductImage } from './product-image';
 import { StorefrontService } from '../services/product.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
